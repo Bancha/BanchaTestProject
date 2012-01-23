@@ -28,9 +28,3 @@ Cache::config('default', array('engine' => 'File'));
 
 //make the Bancha Plugin known to cakephp
 CakePlugin::load(array('Bancha' => array('routes' => true))); 
-
-//import the BanchaController so ExtJS can get the initial API definition
-App::import('Controller', 'Bancha.Bancha');
-
-//import the BanchaBehavior, so Models can use it
-App::import('Behavior','Bancha.Bancha');
