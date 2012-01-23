@@ -1,4 +1,0 @@
-[submodule "Plugin/Bancha"]
-	path = Plugin/Bancha
-	url = git://github.com/Bancha/Bancha.git
-	update = checkout
