@@ -1,0 +1,11 @@
+/Config/database.php
+/tmp
+.DS_Store
+
+
+webroot/js/ext-all.js
+webroot/js/ext-all-dev.js
+webroot/js/Bancha.js
+
+webroot/css/resources/css
+webroot/css/resources/themes
