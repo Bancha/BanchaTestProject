@@ -4,7 +4,7 @@ Bancha Development Playground
 This is the development playground for Bancha developers. 
 
 
-Sample-Project Setup:
+How to setup the project:
 ---------------------
 1. Download [CakePHP](http://www.cakephp.org) latest (tested with 2.0.5)
 1. Download the test project inside __/app__
