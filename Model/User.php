@@ -7,7 +7,7 @@ class User extends AppModel {
 	/**
 	 * Bancha behaviour
 	 */
-	public $actsAs = array('Bancha');
+	public $actsAs = array('Bancha.BanchaRemotable');
 /**
  * Validation rules
  *

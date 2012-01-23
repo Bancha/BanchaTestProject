@@ -4,11 +4,11 @@
  *
  */
 class Tag extends AppModel {
-		/**
+	/**
 	 * Behaviors
 	 */
 	
-	public $actsAs = array('Bancha');
+	public $actsAs = array('Bancha.BanchaRemotable');
 /**
  * Validation rules
  *
