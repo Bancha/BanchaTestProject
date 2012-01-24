@@ -7,5 +7,6 @@ webroot/js/ext-all.js
 webroot/js/ext-all-dev.js
 webroot/js/Bancha.js
 
+webroot/css/resources/sass
 webroot/css/resources/css
 webroot/css/resources/themes
