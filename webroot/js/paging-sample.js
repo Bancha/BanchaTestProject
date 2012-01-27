@@ -47,9 +47,9 @@ Bancha.onModelReady('Article', function() {
         
         // add some styling
         height: 300,
-        width: 620,
+        width: 650,
         frame: true,
-        title: 'Article Grid with Paging',
+        title: 'Grid with serverside Paging, data is loaded with Bancha',
         renderTo: 'gridpanel'
     });
 

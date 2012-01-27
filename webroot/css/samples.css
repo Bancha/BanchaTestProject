@@ -1,3 +1,4 @@
+/* layout */
 body {
     margin-top:40px;
     margin-left:20px;
@@ -7,16 +8,45 @@ body {
 .wrapper > p {
     margin:60px auto 3px auto;
 }
+
+
 /* center extjs sample panels */
 .x-panel {
     margin:0 auto 0 auto;
     text-align:center;
 }
 
+/* div centering */
+.middleOnly {
+    width: 650;
+    margin: auto;
+    padding:10px;
+    text-align:left;
+}
+
+/* description right under a extjs panel*/
+.panel-description {
+    width: 650;
+    margin: auto;
+    padding-top:10px;
+    padding-bottom:30px;
+    text-align:left;
+}
+
+/* nicer log panel look */
+.log-text {
+	padding-top:10px;
+	padding-left:10px;
+    text-align:left;
+    font-size:13px;
+    color: black;
+}
+
+
+/* icon styling */
 .uploaded-image {
     margin-left:80px;
 }
-
 .icon-add {
 	background-image:url(../img/icons/add.png) ! important;
 }
