@@ -1,0 +1,80 @@
+<html> 
+<head>
+<title>Bancha Project - The Power of ExtJS and CakePHP</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta http-equiv="Content-Style-Type" content="text/css" /> 
+<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+<meta name="description" content="" /> 
+<meta name="keywords" content="" /> 
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' /> 
+<!-- 1140px Grid styles for IE --> 
+<!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]--> 
+<!-- The 1140px Grid - http://cssgrid.net/ --> 
+<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/1140.css" type="text/css" media="screen" /> 
+<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers--> 
+<script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script> 
+<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
+<meta name="robots" content="index,follow" />
+
+<!-- sample specific css -->
+<link rel="stylesheet" href="css/resources/css/ext-all.css" type="text/css">
+<link rel="stylesheet" href="css/samples.css" type="text/css">
+<!-- eo sample specific css -->
+
+
+<style type="text/css">
+    .middleOnly {
+        width: 650;
+        margin: auto;
+        padding:10px;
+    }
+    .log-text {
+		padding-top:10px;
+		padding-left:10px;
+        text-align:left;
+        font-size:13px;
+        color: black;
+    }
+</style>
+
+</head>
+<body id="top" style="text-align:center;"> 
+<div class="wrapper">
+    <br />
+    <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
+    <br /><br />
+
+    <div class="middleOnly" style="text-align:left;margin-top:30px;">
+        Just type in a name and get the appropriate greeting for the current day time. <br />
+        If your name is Judas the server will return with an unsucessfull response.
+    </div>
+    <div id="log" class="middleOnly"></div>
+    <div class="middleOnly" style="text-align:left; padding-top: 0px; padding-bottom: 30px;">
+		The code: <a href="https://raw.github.com/Bancha/BanchaTestProject/master/Controller/HellosController.php" target="_blank">cakephp code</a>, <a href="https://raw.github.com/Bancha/BanchaTestProject/master/webroot/js/controller-sample.js" target="_blank">javascript code</a>.
+    	Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+	</div>
+    
+    <!-- for footer alignment -->
+    <div class="push"></div> 
+</div>
+<div class="footer"> 
+    <small>&copy; 2011-2012 Roland Sch&uuml;tz, Kung Wong, Andreas Kern, Florian Eckerstorfer. <a href="http://banchaproject.org/impressum.html">Impressum</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
+</div>
+
+
+<!-- include ExtJS -->
+<script type="text/javascript" src="js/ext-all-dev.js"></script>
+
+<!-- include Bancha and the remote API -->
+<script type="text/javascript" src="Bancha/js/Bancha.js"></script>
+<script type="text/javascript" src="bancha-api.js"></script>
+
+<!-- include error handling -->
+<script type="text/javascript" src="js/error-handling.js"></script>
+<script type="text/javascript" src="js/beta-error-handling.js"></script>
+
+<!-- include sample code -->
+<script type="text/javascript" src="js/controller-sample.js"></script>
+
+</body>
+</html>
