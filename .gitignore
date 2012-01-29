@@ -1,11 +1,15 @@
-/Config/database.php
-/tmp
 .DS_Store
+
+/Config/database.php
+
+/tmp/cache/models/cake_*
+/tmp/cache/persistent/cake_*
+/tmp/cache/views/cake_*
+/tmp/logs/*.log
 
 
 webroot/js/ext-all.js
 webroot/js/ext-all-dev.js
-webroot/js/Bancha.js
 
 webroot/css/resources/sass
 webroot/css/resources/css
