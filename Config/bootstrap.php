@@ -27,4 +27,4 @@
 Cache::config('default', array('engine' => 'File'));
 
 //make the Bancha Plugin known to cakephp
-CakePlugin::load(array('Bancha' => array('routes' => true))); 
+CakePlugin::load(array('Bancha' => array('routes' => true, 'bootstrap' => true))); 
