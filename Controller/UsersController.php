@@ -116,8 +116,7 @@ class UsersController extends AppController {
 	}
 
 
-    // TODO We need a way here to expose controller functions
-// This is not yet used
+// This should become a consistancy example, not yet used
 /**
  * fancy method needs long to answer (for consistency tests)
  * @return Integer
