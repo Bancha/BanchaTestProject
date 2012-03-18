@@ -30,44 +30,94 @@ Ext.require([
 // from the server and the model is created....
 Bancha.onModelReady('Article', function() {
 
-    // ... create a simple grid showing paging support
+    // create a store using Bancha with paging
+    var store = Ext.create('Ext.data.Store',{
+        model: Bancha.getModel('Article'),
+        autoLoad: true,
+        pageSize: 10,
+        remoteSort: true
+    });
+    
+    // Everything below is just normal ExtJS code
+    // Create a simple grid which demostrates the Bancha 
+    // support for serverside paging and remote sorting
     Ext.create('Ext.grid.Panel', {
         
-        // we don't need an editable grid for this example
-        enableCreate: false,
-        enableUpdate: false,
-        enableDestroy: false,
+        // use the store from above
+        store: store,
         
-        // configure scaffolding
-        scaffold: {
-			// model name
-	        target: 'Article',
-	
-            // configure paging
-            storeDefaults: {
-                autoLoad: true,
-                pageSize: 10,
-                remoteSort: true
-            },
+        // normal column definitions
+        columns: [{
+            flex: 1,
+            xtype: "gridcolumn",
+            text: "Title",
+            dataIndex: "title",
+            field: {
+                xtype: "textfield",
+                name: "title"
+            }
+        }, {
+            flex: 1,
+            xtype: "datecolumn",
+            text: "Date",
+            dataIndex: "date",
+            field: {
+                xtype: "datefield",
+                name: "date"
+            }
+        }, {
+            flex: 1,
+            xtype: "gridcolumn",
+            text: "Body",
+            dataIndex: "body",
+            field: {
+                xtype: "textfield",
+                name: "body"
+            }
+        }, {
+            flex: 1,
+            xtype: "booleancolumn",
+            text: "Published",
+            dataIndex: "published",
+            field: {
+                uncheckedValue: false,
+                xtype: "checkboxfield",
+                name: "published"
+            }
+        }, {
+            flex: 1,
+            xtype: "numbercolumn",
+            format: "0",
+            text: "User",
+            dataIndex: "user_id",
+            field: {
+                xtype: "numberfield",
+                allowDecimals: false,
+                name: "user_id"
+            }
+        }, {
+            xtype: "actioncolumn",
+            width: 50,
+            items: [{
+                icon: "/img/icons/delete.png",
+                tooltip: "Delete",
+                handler: null
+            }]
+        }],
 
-            // add a paging bar
-            afterBuild: function(config) {
-                // paging bar on the bottom
-                config.bbar = Ext.create('Ext.PagingToolbar', {
-                    store: config.store,
-                    displayInfo: true,
-                    displayMsg: 'Displaying entry {0} - {1} of {2}',
-                    emptyMsg: "No entires to display"
-                });
-                return config;
-            } //eo afterBuild
-        },
+        // add a paging bar
+        bbar: Ext.create('Ext.PagingToolbar', {
+            store: store,
+            displayInfo: true,
+            displayMsg: 'Displaying entry {0} - {1} of {2}',
+            emptyMsg: "No entires to display"
+        }),
         
         // add some styling
         height: 300,
         width: 650,
         frame: true,
-        title: 'Grid with serverside Paging, data is loaded with Bancha',
+        title: 'Grid with serverside Paging and remote sorting, loaded with Bancha',
         renderTo: 'gridpanel'
     });
 
