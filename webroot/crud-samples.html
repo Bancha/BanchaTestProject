@@ -11,7 +11,7 @@
  * @package       Bancha
  * @copyright     Copyright 2011-2012 Roland Schuetz, Kung Wong, Andreas Kern, Florian Eckerstorfer
  * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.9.2
+ * @since         Bancha v 0.2.0
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
@@ -36,6 +36,7 @@
 <link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
 <meta name="robots" content="index,follow" />
 
+
 <!-- sample specific css -->
 <link rel="stylesheet" href="css/resources/css/ext-all.css" type="text/css">
 <link rel="stylesheet" href="css/samples.css" type="text/css">
@@ -49,25 +50,29 @@
     <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
     <br /><br />
 	
-	
-	
-    <div id="gridpanel" style="margin-top:30px;"></div>
-    <div id="formpanel" style="margin-top:30px;"></div>
-    <div id="chart" style="margin-top:30px;"></div>
-	
-    <div class="panel-description">
-        The code: <a href="https://github.com/Bancha/Bancha/wiki/Controller-Augmentation-Alternative-1" target="_blank">cakephp default controller augmentation</a>, <a href="https://raw.github.com/Bancha/BanchaTestProject/master/webroot/js/paging-sample.js" target="_blank">javascript code</a>.
-        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
-	</div>
-   
-    
+	<h1>Bancha creates the Stores - ExtJS the Rest</h2>
 
+	<p>
+        The code: <a href="https://github.com/Bancha/Bancha/wiki/Controller-Augmentation-Alternative-1" target="_blank">cakephp default controller augmentation</a>, <a href="https://raw.github.com/Bancha/BanchaTestProject/master/webroot/js/crud-samples.js" target="_blank">javascript code</a>.
+        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+    </p>
+	
+    <div id="gridpanel"></div>
+    
+    <div id="paginated-gridpanel"></div>
+
+    <div id="formpanel"></div>
+	
+	<div id="chart"></div>
+    
+    <br />
+	
     <!-- for footer alignment -->
 	<div class="push"></div> 
 </div>
 <div class="footer"> 
 	<small>&copy; 2011-2012 Roland Sch&uuml;tz, Kung Wong, Andreas Kern, Florian Eckerstorfer. <a href="http://banchaproject.org/impressum.html">Impressum</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
-</div> 
+</div>
 
 
 <!-- include ExtJS -->
@@ -75,12 +80,14 @@
 
 <!-- include Bancha and the remote API -->
 <script type="text/javascript" src="Bancha/js/Bancha.js"></script>
+<script type="text/javascript" src="Bancha/js/Bancha-Scaffold.js"></script>
 <script type="text/javascript" src="bancha-api.js"></script>
-	
+
 <!-- include sample code -->
 <script type="text/javascript" src="js/error-handling.js"></script>
 <script type="text/javascript" src="js/beta-error-handling.js"></script>
-<script type="text/javascript" src="js/paging-sample.js"></script>
+<script type="text/javascript" src="js/crud-samples.js"></script>
+
 
 </body>
 </html>

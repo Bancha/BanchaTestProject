@@ -5,8 +5,21 @@ body {
     margin-bottom:5px;
 }
 
-.wrapper > p {
+#gridpanel, #paginated-gridpanel, #formpanel, #chart {
     margin:60px auto 3px auto;
+}
+
+
+/* font styling */
+body h1, body .descriptions {
+    font-family: 'Droid Serif', tahoma, arial, verdana, sans-serif;
+}
+body h1 {
+    margin-top: 45px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-weight: normal;
+    color: #633;
 }
 
 
