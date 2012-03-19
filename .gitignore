@@ -2,7 +2,9 @@
 
 /Config/database.php
 
+/tmp/cache/models/bancha_*
 /tmp/cache/models/cake_*
+/tmp/cache/persistent/bancha_*
 /tmp/cache/persistent/cake_*
 /tmp/cache/views/cake_*
 /tmp/logs/*.log
