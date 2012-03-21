@@ -44,6 +44,12 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			
+			// handle avatar field uploads
+			$result = $this->handleUpload('avatar');
+			if(is_string($result)) {
+				return $result; // this is an error message
+			}
+			
 			if($this->request->params['isBancha']) return $this->User->saveFieldsAndReturn($this->request->data);	 // added
 			
 			if ($this->User->save($this->request->data)) {
@@ -67,10 +73,16 @@ class UsersController extends AppController {
 			throw new NotFoundException(__('Invalid user'));
 		}
 	
+		// handle avatar field uploads
+		$result = $this->handleUpload('avatar');
+		if(is_string($result)) {
+			return $result; // this is an error message
+		}
+		
 		if($this->request->params['isBancha']) return $this->User->saveFieldsAndReturn($this->request->data);	 // added
 	
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->User->save($this->request->data['0']['data'])) {
+			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -113,6 +125,46 @@ class UsersController extends AppController {
 		}
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
+	}
+
+	/**
+	 * 
+	 * @return true if successfull, otherwise an error msg
+	 */
+	function handleUpload($fieldName) {
+		
+		// only upload files when the record validates
+		$this->User->set($this->request->data);
+		if($this->User->validates()) {
+			/*
+			 * Currently Bancha saves files at a different place then 
+			 * CakePHP standard forms, this should be improved
+			 */
+			$file = false;
+			if($this->request->params['isBancha'] && isset($_FILES[$fieldName])) {
+				$file = $_FILES[$fieldName];
+			} elseif(isset($this->request->data[$fieldName])) {
+				$file = $this->request->data[$fieldName];
+			}
+			
+			if($file) {
+				// a file was uploaded, save it
+				$result = $this->uploadFiles('img/user-avatars', array($file)); // this function is implemented in the App Controller
+				
+				// error handling
+				if(isset($result['errors']) || isset($result['nofiles'])) {
+					$error = isset($result['errors'][0]) ? $result['errors'][0] : $result['nofiles'];
+					if(!$this->request->params['isBancha']) {
+						$this->Session->setFlash($error);
+					}
+					return $error;
+				}
+			
+				// success case
+				$this->request->data['User']['avatar'] = $result['urls'][0];
+				return true;
+			}
+		}
 	}
 
 

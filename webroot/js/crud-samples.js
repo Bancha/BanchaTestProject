@@ -144,11 +144,11 @@ Bancha.onModelReady(['Article','User'], function() {
 
     /**
      * Example 3
-     * Bancha also provides support for form submits
+     * Bancha also provides support for form submits and file uploads
      */
 
     Ext.create('Ext.form.Panel', { 
-        title: 'Form Panel - Create a new User',
+        title: 'Form Submit with File Upload - Create a new User',
         
         // configure Bancha
         api: {
@@ -156,6 +156,9 @@ Bancha.onModelReady(['Article','User'], function() {
             submit: Bancha.RemoteStubs.User.submit
         },
         paramOrder: ['data'],
+        
+        // enable file uploads
+        fileUpload: true,
         
         // configure form
         items: Ext.clone(Example.User.formItems),
@@ -173,27 +176,56 @@ Bancha.onModelReady(['Article','User'], function() {
                 panel.load({
                     params: {
                         data: { data: { id:1 } }
+                    },
+                    success: function(form, action) {
+                        // build a record
+                        console.info(action.result.data);
+                        rec = Ext.create(Bancha.getModel('User'),action.result.data);
+                        form.loadRecord(rec);
+                        
+                        // update the image
+                        panel.down('#avatar-display-field').update(action.result.data);
                     }
                 });
                 
                 // change the header title
-                panel.setTitle('Form with upload field - Change Record 1');
+                panel.setTitle('Form Submit with File Upload - Change Record 1');
             }
         }, {
             iconCls: "icon-save",
             text: "Save",
             formBind: true,
             handler: function() {
-                var form = Ext.ComponentManager.get('form').getForm();
+                var panel = Ext.ComponentManager.get('form'),
+                    form  = panel.getForm();
                 
                 if(form.isValid()){
                     form.submit({
                         waitMsg: 'Saving data..',
                         success: function(form, action) {
+                            var rec;
                             Ext.MessageBox.alert('Success', action.result.msg || 'Successfully saved data.');
+                            
+                            // if we just created a new record on the server, create it here as well
+                            if(!form.getRecord()) {
+                                rec = Ext.create(Bancha.getModel('User'),action.result.data);
+                                form.loadRecord(rec);
+                            } else {
+                                // save changes
+                                rec = form.getRecord();
+                                Ext.Object.each(action.result.data,function(key,value) {
+                                    rec.set(key,value);
+                                });
+                            }
+                            
+                            // update image
+                           panel.down('#avatar-display-field').update(rec.data);
                         },
                         failure: function(form, action) {
                             Ext.MessageBox.alert('Failed', action.result.msg || 'Could not save data, unknown error.');
+                            
+                            // update image
+                            panel.down('#avatar-display-field').update({});
                         }
                     });
                 }
@@ -414,19 +446,35 @@ Example.User = {
             name: "login",
             fieldLabel: "Login"
         }, {
-            xtype: "datefield",
-            name: "created",
-            fieldLabel: "Created"
-        }, {
             xtype: "textfield",
             name: "email",
-            fieldLabel: "Email"
+            fieldLabel: "Email",
+            vtype: 'email'
+        }, {
+            xtype: 'fileuploadfield',
+            name: "avatar",
+            fieldLabel: "Avatar",
+            
+            buttonText: '',
+            buttonConfig: {
+                iconCls: 'icon-upload'
+            },
+            vtype: 'fileExtension',
+            validExtensions: ['gif', 'jpeg', 'png', 'jpg'],
+            emptyText: 'Select an file'
+        }, {
+            xtype: 'component', 
+            id: 'avatar-display-field',
+            data: {},
+            tpl: '<tpl if="avatar"><span class="uploaded-image">most recently uploaded image: {avatar}<image src="{avatar}" style="max-width: 400px; height:100px;" title="most recently uploaded image"></span></tpl>'
         }, {
             xtype: "numberfield",
+            allowBlank: false,
             name: "weight",
             fieldLabel: "Weight"
         }, {
             xtype: "numberfield",
+            allowBlank: false,
             allowDecimals: false,
             name: "height",
             fieldLabel: "Height"

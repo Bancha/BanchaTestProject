@@ -36,7 +36,7 @@ class AppSchema extends CakeSchema {
 		'login' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 64, 'collate' => NULL, 'comment' => ''),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
 		'email' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 64, 'collate' => NULL, 'comment' => ''),
-		//'avatar' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 64, 'collate' => NULL, 'comment' => ''),
+		'avatar' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 255, 'collate' => NULL, 'comment' => ''),
 		'weight' => array('type' => 'float', 'null' => true, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
 		'height' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'collate' => NULL, 'comment' => ''),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),

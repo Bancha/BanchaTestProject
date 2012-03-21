@@ -4,10 +4,10 @@
 
 -- add users
 INSERT INTO `bancha_samles_users` (`id`, `name`, `login`, `created`, `email`, `avatar`, `weight`, `height`) VALUES
-(1, 'Roland', 'roland', '2011-07-28 03:54:20', 'mail@rolandschuetz.at', 'roland.jpg', 76, 187),
-(2, 'Andreas', 'andreas', '2011-07-28 03:54:20', 'andreas.kern@gmail.com', 'andreas.jpg', 70, 230),
-(3, 'Florian', 'florian', '2011-07-28 03:54:20', 'f.eckerstorfer@gmail.com', 'florian.jpg', 80, 180),
-(4, 'Kung', 'kung', '2011-07-28 03:54:20', 'kung.wong@gmail.com', 'kung.jpg', 82, 186);
+(1, 'Roland', 'roland', '2011-07-28 03:54:20', 'mail@rolandschuetz.at', 'img/user-avatars/bancha-logo-1.png', 76, 187),
+(2, 'Andreas', 'andreas', '2011-07-28 03:54:20', 'andreas.kern@gmail.com', 'img/user-avatars/bancha-logo-2.jpg', 70, 230),
+(3, 'Florian', 'florian', '2011-07-28 03:54:20', 'f.eckerstorfer@gmail.com', 'img/user-avatars/bancha-logo-1.png', 80, 180),
+(4, 'Kung', 'kung', '2011-07-28 03:54:20', 'kung.wong@gmail.com', 'img/user-avatars/bancha-logo-1.png', 82, 186);
 
 
 -- add articles
