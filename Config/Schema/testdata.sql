@@ -3,7 +3,7 @@
 
 
 -- add users
-INSERT INTO `bancha_samles_users` (`id`, `name`, `login`, `created`, `email`, `avatar`, `weight`, `height`) VALUES
+INSERT INTO `bancha_10_samples_users` (`id`, `name`, `login`, `created`, `email`, `avatar`, `weight`, `height`) VALUES
 (1, 'Roland', 'roland', '2011-07-28 03:54:20', 'mail@rolandschuetz.at', 'img/user-avatars/bancha-logo-1.png', 76, 187),
 (2, 'Andreas', 'andreas', '2011-07-28 03:54:20', 'andreas.kern@gmail.com', 'img/user-avatars/bancha-logo-2.jpg', 70, 230),
 (3, 'Florian', 'florian', '2011-07-28 03:54:20', 'f.eckerstorfer@gmail.com', 'img/user-avatars/bancha-logo-1.png', 80, 180),
@@ -11,7 +11,7 @@ INSERT INTO `bancha_samles_users` (`id`, `name`, `login`, `created`, `email`, `a
 
 
 -- add articles
-INSERT INTO `bancha_samles_articles` (`id`, `title`, `date`, `body`, `published`, `user_id`) VALUES
+INSERT INTO `bancha_10_samples_articles` (`id`, `title`, `date`, `body`, `published`, `user_id`) VALUES
 (11, 'Titel 01', '2011-11-21 01:50:34', 'This is the text for 01', 0, 1),
 (12, 'Titel 02', '2011-11-21 01:50:42', 'This is the text for 02', 0, 1),
 (13, 'Titel 03', '2011-11-21 01:50:38', 'This is the text for 03', 1, 1),

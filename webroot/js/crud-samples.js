@@ -179,7 +179,6 @@ Bancha.onModelReady(['Article','User'], function() {
                     },
                     success: function(form, action) {
                         // build a record
-                        console.info(action.result.data);
                         rec = Ext.create(Bancha.getModel('User'),action.result.data);
                         form.loadRecord(rec);
                         
@@ -316,6 +315,51 @@ Bancha.onModelReady(['Article','User'], function() {
      
 });
 
+
+/**
+ * Add a new form field validation rule for the user form with a file upload
+ */
+
+Ext.require([
+    'Ext.form.field.VTypes'
+    ], function() {
+        
+    var filenameHasExtension = function(filename,validExtensions) {
+        if(!filename) {
+            return true; // no file defined (emtpy string or undefined)
+        }
+        if(!Ext.isDefined(validExtensions)) {
+            return true;
+        }
+        var ext = filename.split('.').pop();
+        return Ext.Array.contains(validExtensions,ext);
+    };
+    /**
+     * @class Ext.form.field.VTypes
+     * @author Roland Schuetz <mail@rolandschuetz.at>
+     * @docauthor Roland Schuetz <mail@rolandschuetz.at>
+     */
+    Ext.apply(Ext.form.field.VTypes, {
+        /**
+         * @method
+         * Validates that the file extension is of one of field.validExtensions
+         * Also true if field.validExtensions is undefined or if val is an empty string
+         */
+        fileExtension: function(val, field) {
+            return filenameHasExtension(val,field.validExtensions);
+        },
+        /**
+         * @property
+         * The error text to display when the file extension validation function returns false. Defaults to: 'This file type is not allowed.'
+         */
+        fileExtensionText: 'This file type is not allowed.',
+        /**
+         * @property
+         * The keystroke filter mask to be applied on alpha input. Defaults to: /[\^\r\n]/
+         */
+        fileExtensionMask: /[\^\r\n]/ // alow everything except new lines
+    });
+});
 
 /**
  * This object provides some basic ExtJS code
