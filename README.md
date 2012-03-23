@@ -1,7 +1,10 @@
-Bancha Development Playground
+[![Bancha logo](http://docs.banchaproject.com/wiki/images/github-logo.png)](http://banchaproject.com)
+
+Bancha Sample Project
 =============================
 
-This is the development playground for Bancha developers. 
+This is the development playground for Bancha developers, providing sample of how to use Bancha.
+Live demo at http://samples.banchaproject.com
 
 
 How to setup the project:
@@ -9,8 +12,8 @@ How to setup the project:
 
 __CakePHP Setup:__
 
-1. Download [CakePHP](http://www.cakephp.org) latest (tested with 2.0.5)
-1. Download the test project inside __/app__
+1. Download [CakePHP](http://www.cakephp.com) latest (tested with 2.1.0)
+1. Download this project inside __/app__
 1. Configure your _app/Config/database.php_, then go in your console inside _app/_ and execute _"./Console/cake" schema create_ to create all the tables
 1. Open __/bancha/setup-check.html__ to see if everything works.
 
@@ -31,7 +34,7 @@ That's it, enjoy!
 
 
 
-For more information go to [banchaproject.org](http://banchaproject.org) 
+For more information go to [banchaproject.com](http://banchaproject.com) 
 
 Updates via Twitter [@banchaproject](http://twitter.com/#!/banchaproject)
 
@@ -39,7 +42,7 @@ Updates via Twitter [@banchaproject](http://twitter.com/#!/banchaproject)
 
 _This package is not for production use. It includes multiple licences, 
 everything works under GNU General Public License version 3 as far as we 
-know, some parts also under MIT Licence._
+know, but there is no warranty._
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
