@@ -32,11 +32,13 @@ __For Sencha Touch Support:__
 That's it, enjoy!
 
 
+---
 
+More information:
+-----------------
 
-For more information go to [banchaproject.com](http://banchaproject.com) 
-
-Updates via Twitter [@banchaproject](http://twitter.com/#!/banchaproject)
+*   [Bancha Overview](http://banchaproject.com/)
+*   [Updates on Twitter](http://twitter.com/#!/banchaproject)
 
 -------------------------
 
