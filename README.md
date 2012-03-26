@@ -4,7 +4,8 @@ Bancha Sample Project
 =============================
 
 This is the development playground for Bancha developers, providing sample of how to use Bancha.
-Live demo at http://samples.banchaproject.com
+
+[Live demo](http://samples.banchaproject.com)
 
 
 How to setup the project
