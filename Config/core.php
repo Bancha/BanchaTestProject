@@ -277,3 +277,15 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
+
+/**
+ * Configure the cache for Banchas Remote API.
+ */
+Cache::config('_bancha_api_', array(
+	'engine' => $engine,
+	'prefix' => $prefix . 'bancha_api_',
+	'path' => CACHE . 'models' . DS,
+	'serialize' => ($engine === 'File'),
+	'duration' => $duration
+));
+
