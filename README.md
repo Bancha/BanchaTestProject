@@ -7,8 +7,8 @@ This is the development playground for Bancha developers, providing sample of ho
 Live demo at http://samples.banchaproject.com
 
 
-How to setup the project:
----------------------
+How to setup the project
+------------------------
 
 __CakePHP Setup:__
 
@@ -32,10 +32,9 @@ __For Sencha Touch Support:__
 That's it, enjoy!
 
 
----
 
-More information:
------------------
+More information
+----------------
 
 *   [Bancha Overview](http://banchaproject.com/)
 *   [Updates on Twitter](http://twitter.com/#!/banchaproject)
