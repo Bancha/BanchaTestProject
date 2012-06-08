@@ -79,6 +79,14 @@ body h1 {
 
 
 
+/* github link at the bottom of the page */
+.github-link {
+    margin: 30px 0;
+}
+.github-link a {
+    color:#633;
+    font-size:24px;
+}
 
 
 /* footer */
