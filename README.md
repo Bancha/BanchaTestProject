@@ -13,7 +13,7 @@ How to setup the project
 
 __CakePHP Setup:__
 
-1. Download [CakePHP](http://www.cakephp.com) latest (tested with 2.1.0)
+1. Download [CakePHP](http://www.cakephp.org) latest (tested with 2.1)
 1. Download this project inside __/app__
 1. Configure your _app/Config/database.php_, then go in your console inside _app/_ and execute _"./Console/cake" schema create_ to create all the tables
 1. Open __/bancha/setup-check.html__ to see if everything works.
