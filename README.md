@@ -37,7 +37,7 @@ That's it, enjoy!
 More information
 ----------------
 
-*   [Bancha Overview](http://banchaproject.com/)
+*   [Bancha Overview](http://banchaproject.org/)
 *   [Updates on Twitter](http://twitter.com/#!/banchaproject)
 
 -------------------------
