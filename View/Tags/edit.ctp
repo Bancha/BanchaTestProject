@@ -1,7 +1,7 @@
 <div class="tags form">
 <?php echo $this->Form->create('Tag');?>
 	<fieldset>
-		<legend><?php __('Edit Tag'); ?></legend>
+		<legend><?php echo __('Edit Tag'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('string');

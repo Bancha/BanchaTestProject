@@ -1,13 +1,13 @@
 <div class="tags view">
 <h2><?php  echo __('Tag');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
 			<?php echo h($tag['Tag']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('String'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('String'); ?></dt>
+		<dd>
 			<?php echo h($tag['Tag']['string']); ?>
 			&nbsp;
 		</dd>
@@ -39,13 +39,8 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($tag['Article'] as $article):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
+		foreach ($tag['Article'] as $article): ?>
+		<tr>
 			<td><?php echo $article['id'];?></td>
 			<td><?php echo $article['title'];?></td>
 			<td><?php echo $article['date'];?></td>

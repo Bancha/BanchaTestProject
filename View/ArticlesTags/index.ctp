@@ -7,14 +7,8 @@
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
-	$i = 0;
-	foreach ($articlesTags as $articlesTag):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
+	foreach ($articlesTags as $articlesTag): ?>
+	<tr>
 		<td>
 			<?php echo $this->Html->link($articlesTag['Article']['title'], array('controller' => 'articles', 'action' => 'view', $articlesTag['Article']['id'])); ?>
 		</td>
@@ -32,15 +26,16 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous'), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
 	</div>
 </div>
 <div class="actions">

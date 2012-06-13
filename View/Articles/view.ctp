@@ -1,33 +1,33 @@
 <div class="articles view">
 <h2><?php  echo __('Article');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
 			<?php echo h($article['Article']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Title'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Title'); ?></dt>
+		<dd>
 			<?php echo h($article['Article']['title']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Date'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Date'); ?></dt>
+		<dd>
 			<?php echo h($article['Article']['date']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Body'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Body'); ?></dt>
+		<dd>
 			<?php echo h($article['Article']['body']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Published'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Published'); ?></dt>
+		<dd>
 			<?php echo h($article['Article']['published']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('User'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('User'); ?></dt>
+		<dd>
 			<?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 			&nbsp;
 		</dd>
@@ -57,13 +57,8 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($article['Tag'] as $tag):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
+		foreach ($article['Tag'] as $tag): ?>
+		<tr>
 			<td><?php echo $tag['id'];?></td>
 			<td><?php echo $tag['string'];?></td>
 			<td class="actions">

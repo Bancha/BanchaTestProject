@@ -1,7 +1,7 @@
 <div class="users form">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
-		<legend><?php __('Edit User'); ?></legend>
+		<legend><?php echo __('Edit User'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('name');
@@ -9,7 +9,7 @@
 		echo $this->Form->input('email');
 		echo $this->Form->input('avatar');
 		echo $this->Form->input('weight');
-		echo $this->Form->input('heigth');
+		echo $this->Form->input('height');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

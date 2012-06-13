@@ -1,13 +1,13 @@
 <div class="articlesTags view">
 <h2><?php  echo __('Articles Tag');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Article'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<dl>
+		<dt><?php echo __('Article'); ?></dt>
+		<dd>
 			<?php echo $this->Html->link($articlesTag['Article']['title'], array('controller' => 'articles', 'action' => 'view', $articlesTag['Article']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Tag'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Tag'); ?></dt>
+		<dd>
 			<?php echo $this->Html->link($articlesTag['Tag']['id'], array('controller' => 'tags', 'action' => 'view', $articlesTag['Tag']['id'])); ?>
 			&nbsp;
 		</dd>

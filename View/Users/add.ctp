@@ -1,14 +1,14 @@
 <div class="users form">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
-		<legend><?php __('Add User'); ?></legend>
+		<legend><?php echo __('Add User'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('login');
 		echo $this->Form->input('email');
 		echo $this->Form->input('avatar');
 		echo $this->Form->input('weight');
-		echo $this->Form->input('heigth');
+		echo $this->Form->input('height');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit'));?>

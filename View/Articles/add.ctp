@@ -1,7 +1,7 @@
 <div class="articles form">
 <?php echo $this->Form->create('Article');?>
 	<fieldset>
-		<legend><?php __('Add Article'); ?></legend>
+		<legend><?php echo __('Add Article'); ?></legend>
 	<?php
 		echo $this->Form->input('title');
 		echo $this->Form->input('date');

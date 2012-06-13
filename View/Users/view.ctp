@@ -1,44 +1,44 @@
 <div class="users view">
 <h2><?php  echo __('User');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+	<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Name'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Name'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['name']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Login'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Login'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['login']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Created'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['created']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Email'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Email'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['email']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Avatar'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Avatar'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['avatar']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Weight'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+		<dt><?php echo __('Weight'); ?></dt>
+		<dd>
 			<?php echo h($user['User']['weight']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Heigth'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo h($user['User']['heigth']); ?>
+		<dt><?php echo __('Height'); ?></dt>
+		<dd>
+			<?php echo h($user['User']['height']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -69,13 +69,8 @@
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($user['Article'] as $article):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
+		foreach ($user['Article'] as $article): ?>
+		<tr>
 			<td><?php echo $article['id'];?></td>
 			<td><?php echo $article['title'];?></td>
 			<td><?php echo $article['date'];?></td>
