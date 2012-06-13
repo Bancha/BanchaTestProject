@@ -490,6 +490,11 @@ Example.User = {
             name: "login",
             fieldLabel: "Login"
         }, {
+            xtype: "datefield",
+            name: "created",
+            fieldLabel: "Created on",
+            format: 'Y-m-d'
+        }, {
             xtype: "textfield",
             name: "email",
             fieldLabel: "Email",
@@ -507,7 +512,7 @@ Example.User = {
             validExtensions: ['gif', 'jpeg', 'png', 'jpg'],
             emptyText: 'Select an file'
         }, {
-            xtype: 'component', 
+            xtype: 'component',
             id: 'avatar-display-field',
             data: {},
             tpl: '<tpl if="avatar"><span class="uploaded-image">most recently uploaded image: {avatar}<image src="{avatar}" style="max-width: 400px; height:100px;" title="most recently uploaded image"></span></tpl>'
