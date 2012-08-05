@@ -182,3 +182,6 @@ CakeLog::config('error', array(
 
 //make the Bancha Plugin known to cakephp
 CakePlugin::load(array('Bancha' => array('routes' => true, 'bootstrap' => true))); 
+    
+//make the BanchaDeveloperRemoteApi Plugin known to cakephp
+CakePlugin::load(array('BanchaDeveloperRemoteApi' => array('routes' => true))); 

@@ -2,6 +2,10 @@
 	path = Plugin/Bancha
 	url = git://github.com/Bancha/Bancha.git
 	update = checkout
+[submodule "Plugin/BanchaDeveloperRemoteApi"]
+	path = Plugin/BanchaDeveloperRemoteApi
+	url = git://github.com/Bancha/BanchaDeveloperRemoteApi.git
+	update = checkout
 [submodule "webroot/touch"]
 	path = webroot/touch
 	url = git@github.com:Bancha/BanchaTouchClient.git
