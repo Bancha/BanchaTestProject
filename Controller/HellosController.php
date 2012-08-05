@@ -13,7 +13,7 @@ class HellosController extends AppController {
 	public function getGreeting($timestamp,$firstname) {
 
 		// ignore Judas
-		if($firstname=="Judas") {
+		if(strtolower($firstname)=="judas") {
 			// Bancha will form the appropriete request
 			return false;
 		}
