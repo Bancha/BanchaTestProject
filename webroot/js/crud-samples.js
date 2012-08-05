@@ -14,10 +14,11 @@
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org 
+ * For more information go to http://banchaproject.org
  */
-/*jslint browser: true, vars: true, plusplus: true, white: true, sloppy: true */
-/*global Ext, Example, Bancha */
+/*jslint browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
+/*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false */
+/*global Ext, Example:true, Bancha */
 
 // API and Bancha is already included,
 // now load sample dependencies
@@ -179,7 +180,7 @@ Bancha.onModelReady(['Article','User'], function() {
                     },
                     success: function(form, action) {
                         // build a record
-                        rec = Ext.create(Bancha.getModel('User'),action.result.data);
+                        var rec = Ext.create(Bancha.getModel('User'),action.result.data);
                         form.loadRecord(rec);
                         
                         // update the image
