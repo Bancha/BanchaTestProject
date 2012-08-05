@@ -27,14 +27,29 @@ Ext.Error.handle = function(err) {
 
 // catch server-side errors
 Ext.direct.Manager.on('exception', function(err){
-	if(err.code==="parse") {
+	// normalize ExtJS and Sencha Touch
+	var data = (typeof err.getCode === 'function') ? {
+		code: err.getCode(),
+		message: err.getMessage(),
+		data: {
+			msg: err.getData()
+		},
+
+		// bancha-specific
+		exceptionType: err.config.exceptionType,
+		where: err.config.where,
+		trace: err.config.trace
+	} : err;
+	
+	// handle error
+	if(data.code==="parse") {
 		// parse error
-		Ext.Msg.alert('Bancha: Server-Response can not be decoded',err.data.msg);
+		Ext.Msg.alert('Bancha: Server-Response can not be decoded',data.data.msg);
 	} else {
 		// exception from server
 		Ext.Msg.alert('Bancha: Exception from Server',
-			"<br/><b>"+(err.exceptionType || "Exception")+": "+err.message+"</b><br /><br />"+
-			((err.where) ? err.where+"<br /><br />Trace:<br />"+err.trace : "<i>Turn on the debug mode in cakephp to see the trace.</i>"));
+			"<br/><b>"+(data.exceptionType || "Exception")+": "+data.message+"</b><br /><br />"+
+			((data.where) ? data.where+"<br /><br />Trace:<br />"+data.trace : "<i>Turn on the debug mode in cakephp to see the trace.</i>"));
 	}
 });
 
