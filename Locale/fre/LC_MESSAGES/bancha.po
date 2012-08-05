@@ -1,0 +1,36 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: BanchaTestProject\n"
+"POT-Creation-Date: 2012-08-02 23:33+0200\n"
+"PO-Revision-Date: 2012-08-02 15:49-0700\n"
+"Last-Translator: Roland Schütz <roland@banchaproject.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: deu\n"
+
+#: webroot/test 2.php:3
+msgid ""
+"Inside JavaScript Bancha.t(str,langCode) will translate the text in the "
+"correct language."
+msgstr "Sorry, I don't speak french ;-)"
+
+#: webroot/test 2.php:4
+msgid ""
+"With the usage of following console tool you can collect all translation-"
+"ready strings:"
+msgstr "Just use this cool function:"
+
+#: webroot/test 2.php:5
+msgid ""
+"Bancha translations are handled like normal CakePHP translations, so just "
+"translate cakes pot files and you're ready to go."
+msgstr ""
+
+#: webroot/test 2.php:6
+msgid "Enjoy!"
+msgstr ""

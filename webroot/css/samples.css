@@ -5,7 +5,7 @@ body {
     margin-bottom:5px;
 }
 
-#gridpanel, #paginated-gridpanel, #formpanel, #chart {
+#gridpanel, #paginated-gridpanel, #formpanel, #chart, #translation {
     margin:60px auto 3px auto;
 }
 
@@ -73,7 +73,16 @@ body h1 {
 	background-image:url(../img/icons/image_add.png) ! important;
 }
 .icon-edit-user {
-	background-image:url(../img/icons/user_edit.png) ! important;
+    background-image:url(../img/icons/user_edit.png) ! important;
+}
+.icon-eng {
+    background-image:url(../img/icons/eng.png) ! important;
+}
+.icon-deu {
+    background-image:url(../img/icons/deu.png) ! important;
+}
+.icon-fre {
+    background-image:url(../img/icons/fre.png) ! important;
 }
 
 
@@ -104,3 +113,15 @@ body h1 {
     text-align: right;
 	margin-right:15px;
 }
+
+
+/* specifically for the lacalization example */
+#translations-panel-body {
+    padding: 20px 15px 15px 15px;
+    text-align: left;
+}
+#translations-panel-body code {
+    padding: 2px 20px 2px 5px;
+    display: inline-block;
+}
+
