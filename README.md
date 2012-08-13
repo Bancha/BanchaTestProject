@@ -15,7 +15,7 @@ __CakePHP Setup:__
 
 1. Download [CakePHP](http://www.cakephp.org) latest (tested with 2.0.6, 2.1.5, 2.2.1)
 1. Delete the app folder
-1. Open the terminal inside the cake folder and type: git clone --recursive https://github.com/Bancha/BanchaTestproject.git app (alternativly download this project inside __/app__)
+1. Open the terminal inside the cake folder and type: git clone --recursive https://github.com/Bancha/BanchaTestProject.git app (alternativly download this project inside __/app__)
 1. Configure your _app/Config/database.php_, then go in your console inside _app/_ and execute _"./Console/cake" schema create_ to create all the tables
 1. Open __/bancha/setup-check.html__ to see if everything works.
 
