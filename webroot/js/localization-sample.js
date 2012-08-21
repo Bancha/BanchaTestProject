@@ -31,13 +31,14 @@ Ext.onReady(function() {
 
     // every time a button is clicked just translate the text below
     var translate = function(lang) {
+        Bancha.Localizer.setCurrentLanguage(lang);
 
         // This is the only translation-specific
-        var text = Bancha.t('Inside JavaScript Bancha.t(str,langCode) will translate the text in the correct language.', lang)+'<br /><br/>';
-        text += Bancha.t('With the usage of following console tool you can collect all translation-ready strings:', lang);
+        var text = Bancha.t('Inside JavaScript Bancha.t(str,langCode) will translate the text in the correct language.')+'<br /><br/>';
+        text += Bancha.t('With the usage of following console tool you can collect all translation-ready strings:');
         text += '<br /><code>./Console/cake i18n extract</code><br /><br />';
-        text += Bancha.t('Bancha translations are handled like normal CakePHP translations, so just translate cakes pot files and you\'re ready to go.', lang)+'<br /><br />';
-        text += Bancha.t('Enjoy!', lang);
+        text += Bancha.t('Bancha translations are handled like normal CakePHP translations, so just translate cakes pot files and you\'re ready to go.')+'<br /><br />';
+        text += Bancha.t('Enjoy!');
 
         // update component text
         Ext.getCmp('translations-panel').update(text);
