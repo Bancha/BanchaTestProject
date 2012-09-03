@@ -59,7 +59,7 @@ Ext.onReady(function() {
             if(textfield.isValid()) {
                 // send the request to the server
                 var unixTimestamp = (Date.now()/1000).toString();
-                Bancha.RemoteStubs.Hello.getGreeting(unixTimestamp, textfield.getValue(),function(result) {
+                Bancha.getStub('Hello').getGreeting(unixTimestamp, textfield.getValue(),function(result) {
                     // this is the result callback
                     if(result.success) {
                         log(result.data);
