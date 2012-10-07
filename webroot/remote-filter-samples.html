@@ -11,9 +11,10 @@
  * @package       Bancha
  * @copyright     Copyright 2011-2012 StudioQ OG
  * @link          http://banchaproject.org Bancha Project
+ * @since         Bancha v 0.2.0
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
- * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
+ * @version       Bancha v 1.1.0
  *
  * For more information go to http://banchaproject.org 
  */
@@ -24,7 +25,7 @@
 <meta http-equiv="Content-Style-Type" content="text/css" /> 
 <meta http-equiv="Content-Script-Type" content="text/javascript" /> 
 <meta name="description" content="" /> 
-<meta name="keywords" content="" />
+<meta name="keywords" content="" /> 
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' /> 
 <!-- 1140px Grid styles for IE --> 
 <!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]--> 
@@ -34,35 +35,57 @@
 <script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script> 
 <link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
 <meta name="robots" content="index,follow" />
-</head> 
+
+
+<!-- sample specific css -->
+<link rel="stylesheet" href="css/resources/css/ext-all.css" type="text/css">
+<link rel="stylesheet" href="css/samples.css" type="text/css">
+<!-- eo sample specific css -->
+
+
+</head>
 <body id="top" style="text-align:center;"> 
+<div class="wrapper">
+    <br />
+    <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
+    <br /><br />
+	
+	<h1>Bancha Remote Filtering</h1>
 
-<br /><br /><br /><br /><br /><br />
-<a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
-<br /><br />
+    <p><br/>
+        Bancha automatically exposes all model associations and you access associated data though ExtJS/Sencha Touch. <br/>
+        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/remote-filter-samples.js" target="_blank">javascript code</a> of this example.
+        <br /><br /><br/>
+    </p>
+	
+    <div id="published-articles"></div>
+    <br /><br />
+    <div id="title-01-articles"></div>
 
-<h1 style="color:#633;padding-bottom:20px;">Bancha with ExtJS 4</h1>
+    <br />
+	
+    <!-- for footer alignment -->
+	<div class="push"></div> 
+</div>
+<div class="footer"> 
+	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
+</div>
 
-<h2><a href="crud-samples.html">CRUD Examples</a></h2>
-<h2><a href="controller-sample.html">Exposed Controller Method Example</a></h2>
-<h2><a href="associations-sample.html">Associations Example</a></h2>
-<h2><a href="remote-filter-samples.html">Remote Filtering Example</a></h2>
-<h2><a href="localization-sample.html">Localization Example</a></h2>
 
-<h1 style="color:#633;padding-bottom:20px;">Bancha with Sencha Touch 2</h1>
-<h2><a href="touch/index.html">Sencha Touch Example</a></h2>
+<!-- include ExtJS -->
 
-<br /><br />
-<a href="http://github.com/Bancha/BanchaTestProject" style="color:#633; font-size:24px" target="_blank">The full example code on GitHub</a>
-<br /><br /><br /><br />
 
-<footer id="footer" class="container"><div class="row"> 
-	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a></small> 
-</div></footer> 
- 
-</div> 
- 
-<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script> 
- 
-</body> 
+<script type="text/javascript" src="js/ext-all.js"></script>
+
+
+
+<!-- include Bancha and the remote API -->
+<script type="text/javascript" src="Bancha/js/Bancha.js"></script>
+<script type="text/javascript" src="bancha-api/models/all.js"></script>
+
+<!-- include sample code -->
+<script type="text/javascript" src="js/remote-filter-samples.js"></script>
+
+
+</body>
 </html>

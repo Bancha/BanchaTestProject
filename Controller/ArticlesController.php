@@ -5,6 +5,14 @@
  */
 class ArticlesController extends AppController {
 
+/**
+ * Configure the BanchaComponent explicitly to allow filtering on the fields below
+ * This is used in the examples associations-sample.html and remote-filter-samples.html
+ */
+	public $components = array(
+		'Bancha.Bancha' => array(
+			'allowedFilters' => array('user_id','title','published')
+	));
 
 /**
  * index method

@@ -26,7 +26,11 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	
+	/**
+	 * Add the BanchaComponent to all controllers
+	 */
+	public $components = array('Bancha.Bancha');
+
 	/**
 	 * from http://blog.mixable.de/cakephp-upload-von-dateien-und-grafiken-vereinfachen/ (in german)
 	 * english source: http://www.jamesfairhurst.co.uk/posts/view/uploading_files_and_images_with_cakephp
