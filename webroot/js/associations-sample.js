@@ -40,6 +40,11 @@ Bancha.onModelReady(['Article','User'], function() {
     // ExtJS requires us to instanciate the associated model before we can use it
     Bancha.getModel('Article'); // this instanciates the model if it doesn't yet exist
 
+
+    /**
+     * Example 1 - Load all hasMany associations
+     */
+
     // load the user with the id 1
     Bancha.getModel('User').load(1, {
         callback: function(record, operation) {
@@ -62,10 +67,49 @@ Bancha.onModelReady(['Article','User'], function() {
                 height: 350,
                 width: 650,
                 frame: true,
-                renderTo: 'content'
+                renderTo: 'has-many-grid'
             });
         }
     });
+
+
+
+    /**
+     * Example 2 - Load all belongsTo associations
+     */
+
+    // display a grid of articles
+    var articles = Ext.create('Ext.data.Store', {
+        model: Bancha.getModel('Article'),
+        autoLoad: true
+    });
+    Ext.create('Ext.grid.Panel', {
+        title: 'Click on a article to load the belongsTo user',
+      
+        // grid configs
+        store: articles,
+        columns: Ext.clone(Example.Article.gridColumns),
+        
+        // some additional styles
+        height: 350,
+        width: 650,
+        frame: true,
+        renderTo: 'belongs-to-grid',
+
+        listeners: {
+            selectionchange: function(selectionModel, selected) {
+
+                // load the user of the selected article
+                selected[0].getUser({
+                    callback: function(user, operation) {
+                        Ext.Msg.alert('Loaded belongsTo user record', 
+                            'The Article '+selected[0].get('title')+' belongs to the user '+(user.get('name') || '<i>No name defined</i>'));
+                    }
+                });
+            } //eo selectionchanged
+        }
+    });
+
     
 }); //eo onmodelready
 

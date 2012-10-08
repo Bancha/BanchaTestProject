@@ -58,7 +58,15 @@
         <br/><br /><br />
     </p>
 	
-    <div id="content"></div>
+    <code style="margin: 5px auto; text-align: center; width: 650px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">var store = userRecord.articles();<br />store.load();</code>
+    <div id="has-many-grid"></div>
+
+    <p>
+        <br /><br /><br />
+        <i>Note: Since all examples share the same data, it's possible that NotFoundExceptions get thrown because <br/>a user record got deleted in the crud examples.</i><br/>
+    </p>
+    <code style="margin: 5px auto; padding-left:200px; text-align: left; width: 650px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;">articleRecord.getUser({<br/>&nbsp;&nbsp;&nbsp;&nbsp;callback: function(user) { /*your code */ }<br/>});</code>
+    <div id="belongs-to-grid"></div>
 
     <br />
 	
