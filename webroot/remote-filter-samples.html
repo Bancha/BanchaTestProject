@@ -53,8 +53,10 @@
 	<h1>Bancha Remote Filtering</h1>
 
     <p><br/>
-        Bancha automatically exposes all model associations and you access associated data though ExtJS/Sencha Touch. <br/>
-        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/remote-filter-samples.js" target="_blank">javascript code</a> of this example.
+        ExtJS/Sencha Touch stores can easily be remotely filtered, just set the <i>remoteFilter</i> config to <i>true</i> and filter, <br/>
+        e.g. with <i>store.filter('published',true);</i>. Bancha transforms this into a Bancha request, sends it to the server, <br />
+        there it configures the PaginationComponent and filters without any work by the developer.<br/>
+        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/remote-filter-samples.js#L34" target="_blank">javascript code</a> of this example.
         <br /><br /><br/>
     </p>
 	
