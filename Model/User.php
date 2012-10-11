@@ -56,7 +56,8 @@ class User extends AppModel {
         ),
         'created' => array(
             'created' => array(
-                'rule' => array('date'),
+                'rule'       => array('datetime', 'ymd'),
+                'message'    => 'Enter a valid date and time in "YYYY-MM-DD HH:MM:SS" format.',
 				'allowEmpty' => true,
             ),
         ),
