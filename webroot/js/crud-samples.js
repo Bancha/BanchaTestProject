@@ -255,6 +255,10 @@ Bancha.onModelReady(['Article','User'], function() {
      * Example 4
      * Just a different usage of a standard Bancha Store
      */
+    var chartStore = Ext.create('Ext.data.Store', {
+        model: Bancha.getModel('User'), // yes, that's all you have to do 
+        autoLoad: true                  // (proxy, fields. etc. is already configured)
+    });
 
     // ... and some standard extjs charting
     // yes, there's nothing you have to do bancha-specific, just normal ext ;-)
@@ -269,7 +273,7 @@ Bancha.onModelReady(['Article','User'], function() {
             style: 'background:#fff',
             animate: true,
             shadow: true,
-            store: store, // <-- the store from above
+            store: chartStore, // <-- the store from above
             axes: [{
                 type: 'Numeric',
                 position: 'left',
@@ -485,21 +489,26 @@ Example.User = {
         }, {
             xtype: "textfield",
             name: "name",
-            fieldLabel: "Name"
+            fieldLabel: "Name",
+            minLength: 3,
+            maxLength: 64
         }, {
             xtype: "textfield",
             name: "login",
-            fieldLabel: "Login"
+            fieldLabel: "Login",
+            minLength: 3,
+            maxLength: 64
         }, {
             xtype: "datefield",
             name: "created",
             fieldLabel: "Created on",
-            format: 'Y-m-d'
+            format: 'm/d/Y'
         }, {
             xtype: "textfield",
             name: "email",
             fieldLabel: "Email",
-            vtype: 'email'
+            vtype: 'email',
+            allowBlank: false
         }, {
             xtype: 'fileuploadfield',
             name: "avatar",
@@ -521,13 +530,16 @@ Example.User = {
             xtype: "numberfield",
             allowBlank: false,
             name: "weight",
-            fieldLabel: "Weight"
+            fieldLabel: "Weight",
+            minValue: 40
         }, {
             xtype: "numberfield",
             allowBlank: false,
             allowDecimals: false,
             name: "height",
-            fieldLabel: "Height"
+            fieldLabel: "Height",
+            minValue: 100,
+            maxValue: 250
         }
     ],
     gridColumns: [
@@ -594,7 +606,7 @@ Example.User = {
                 allowDecimals: false,
                 name: "height",
                 minValue: 100,
-                maxValue: 500
+                maxValue: 250
         }
         }
     ]
