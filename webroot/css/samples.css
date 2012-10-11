@@ -6,7 +6,8 @@ body {
 }
 
 #gridpanel, #paginated-gridpanel, #formpanel, #chart, #translation {
-    margin:60px auto 3px auto;
+    margin:0 auto 3px auto;
+    min-height: 200px;
 }
 
 
@@ -125,3 +126,20 @@ body h1 {
     display: inline-block;
 }
 
+/* display the code examples nicly formated */
+code {
+    margin: 40px auto 5px auto;
+    padding: 10px 5px;
+    text-align: center;
+    width: 650px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+}
+code.align-left {
+    text-align: left;
+    padding-left:140px;
+}
+
+/* eof */

@@ -60,8 +60,24 @@
         <br /><br /><br/>
     </p>
 	
+    <code class="align-left" style="padding-left: 60px; margin-top: 5px">
+        var store = Ext.create('Ext.data.Store', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('Article'),<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;remoteFilter: true // activate remote filering<br />
+        });<br />
+        store.filter('published', true); // just use any remote filtering<br />
+        store.load();
+    </code>
     <div id="published-articles"></div>
     <br /><br />
+    <code class="align-left" style="padding-left: 60px; margin-top: 5px">
+        var store = Ext.create('Ext.data.Store', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('Article'),<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;remoteFilter: true // activate remote filering<br />
+        });<br />
+        store.filter('title', 'Titel 01'); // just use any remote filtering<br />
+        store.load();
+    </code>
     <div id="title-01-articles"></div>
 
     <br />

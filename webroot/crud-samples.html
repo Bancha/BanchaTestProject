@@ -57,12 +57,34 @@
         Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
     </p>
 	
+    <code class="align-left" style="padding-left:60px;">var store = Ext.create('Ext.data.Store', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('User'), // yes, that's all you have to do <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true                  // (proxy, fields. etc. is already configured)<br />
+    });</code>
     <div id="gridpanel"></div>
     
+    <code class="align-left" style="padding-left:60px;">var pagingStore = Ext.create('Ext.data.Store', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('Article'),<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;pageSize: 10, // just add a paging size and Bancha does everything<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;remoteSort: true // Bancha also supports remote sorting<br />
+    });</code>
     <div id="paginated-gridpanel"></div>
 
+    <code class="align-left" style="padding-left:60px;">Ext.create('Ext.form.Panel', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;api: { // tell the form to use Banchas methods<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;load: Bancha.getStub('User').read,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submit: Bancha.getStub('User').submit<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+        }
+    </code>
     <div id="formpanel"></div>
 	
+    <code class="align-left" style="padding-left:60px;">var chartStore = Ext.create('Ext.data.Store', {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('User'), // yes, that's all you have to do <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true                  // (proxy, fields. etc. is already configured)<br />
+    });</code>
 	<div id="chart"></div>
     
     <p class="github-link"><a href="http://github.com/Bancha/BanchaTestProject" target="_blank">View the full example code on GitHub</a></p>
