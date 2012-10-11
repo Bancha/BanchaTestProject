@@ -1,5 +1,5 @@
 <div class="articles view">
-<h2><?php  echo __('Article');?></h2>
+<h2><?php  echo __('Article'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -47,20 +47,20 @@
 	</ul>
 </div>
 <div class="related">
-	<h3><?php echo __('Related Tags');?></h3>
-	<?php if (!empty($article['Tag'])):?>
+	<h3><?php echo __('Related Tags'); ?></h3>
+	<?php if (!empty($article['Tag'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('String'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 		$i = 0;
 		foreach ($article['Tag'] as $tag): ?>
 		<tr>
-			<td><?php echo $tag['id'];?></td>
-			<td><?php echo $tag['string'];?></td>
+			<td><?php echo $tag['id']; ?></td>
+			<td><?php echo $tag['string']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'tags', 'action' => 'view', $tag['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'tags', 'action' => 'edit', $tag['id'])); ?>
@@ -73,7 +73,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Tag'), array('controller' => 'tags', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>

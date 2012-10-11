@@ -1,24 +1,18 @@
 <div class="articles index">
-	<h2><?php echo __('Articles');?></h2>
+	<h2><?php echo __('Articles'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('title');?></th>
-			<th><?php echo $this->Paginator->sort('date');?></th>
-			<th><?php echo $this->Paginator->sort('body');?></th>
-			<th><?php echo $this->Paginator->sort('published');?></th>
-			<th><?php echo $this->Paginator->sort('user_id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('title'); ?></th>
+			<th><?php echo $this->Paginator->sort('date'); ?></th>
+			<th><?php echo $this->Paginator->sort('body'); ?></th>
+			<th><?php echo $this->Paginator->sort('published'); ?></th>
+			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
-	$i = 0;
-	foreach ($articles as $article):
-		$class = null;
-		if ($i++ % 2 == 0) {
-			$class = ' class="altrow"';
-		}
-	?>
-	<tr<?php echo $class;?>>
+	foreach ($articles as $article): ?>
+	<tr>
 		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['title']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['date']); ?>&nbsp;</td>
@@ -38,15 +32,16 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
 	));
 	?>	</p>
 
 	<div class="paging">
-		<?php echo $this->Paginator->prev('<< ' . __('previous'), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
-		<?php echo $this->Paginator->next(__('next') . ' >>', array(), null, array('class' => 'disabled'));?>
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
 	</div>
 </div>
 <div class="actions">

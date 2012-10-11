@@ -1,5 +1,5 @@
 <div class="articlesTags view">
-<h2><?php  echo __('Articles Tag');?></h2>
+<h2><?php  echo __('Articles Tag'); ?></h2>
 	<dl>
 		<dt><?php echo __('Article'); ?></dt>
 		<dd>

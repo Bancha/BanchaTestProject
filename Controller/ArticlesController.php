@@ -10,6 +10,7 @@ class ArticlesController extends AppController {
  * This is used in the examples associations-sample.html and remote-filter-samples.html
  */
 	public $components = array(
+		'Session',
 		'Bancha.Bancha' => array(
 			'allowedFilters' => array('user_id','title','published')
 	));
@@ -20,7 +21,6 @@ class ArticlesController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Article->recursive = -1; // modified, cause we don't need associated data
 		$articles = $this->paginate();																// added
 		$this->set('articles', $articles);															// modified
 		return array_merge($this->request['paging']['Article'],array('records'=>$articles)); 		// added
@@ -50,7 +50,7 @@ class ArticlesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Article->create();
 			
-			if($this->request->params['isBancha']) return $this->Article->saveFieldsAndReturn($this->request->data);	 // added
+			if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->Article->saveFieldsAndReturn($this->request->data);	 // added
 			
 			if ($this->Article->save($this->request->data)) {
 				$this->Session->setFlash(__('The article has been saved'));
@@ -76,7 +76,7 @@ class ArticlesController extends AppController {
 			throw new NotFoundException(__('Invalid article'));
 		}
 		
-		if($this->request->params['isBancha']) return $this->Article->saveFieldsAndReturn($this->request->data);	 // added
+		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->Article->saveFieldsAndReturn($this->request->data);	 // added
 		
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Article->save($this->request->data)) {
@@ -108,7 +108,7 @@ class ArticlesController extends AppController {
 			throw new NotFoundException(__('Invalid article'));
 		}
 		
-		if($this->request->params['isBancha']) return $this->Article->deleteAndReturn();	 // added
+		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->Article->deleteAndReturn();	 // added
 		
 		if ($this->Article->delete()) {
 			$this->Session->setFlash(__('Article deleted'));

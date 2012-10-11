@@ -29,7 +29,7 @@ class AppController extends Controller {
 	/**
 	 * Add the BanchaComponent to all controllers
 	 */
-	public $components = array('Bancha.Bancha');
+	public $components = array('Session','Bancha.Bancha');
 
 	/**
 	 * from http://blog.mixable.de/cakephp-upload-von-dateien-und-grafiken-vereinfachen/ (in german)

@@ -1,5 +1,5 @@
 <div class="articles form">
-<?php echo $this->Form->create('Article');?>
+<?php echo $this->Form->create('Article'); ?>
 	<fieldset>
 		<legend><?php echo __('Add Article'); ?></legend>
 	<?php
@@ -11,13 +11,13 @@
 		echo $this->Form->input('Tag');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Tags'), array('controller' => 'tags', 'action' => 'index')); ?> </li>

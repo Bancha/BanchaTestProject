@@ -1,10 +1,10 @@
 <div class="articlesTags index">
-	<h2><?php echo __('Articles Tags');?></h2>
+	<h2><?php echo __('Articles Tags'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('article_id');?></th>
-			<th><?php echo $this->Paginator->sort('tag_id');?></th>
-			<th class="actions"><?php echo __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('article_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('tag_id'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php
 	foreach ($articlesTags as $articlesTag): ?>
