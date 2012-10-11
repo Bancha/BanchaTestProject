@@ -76,7 +76,7 @@ Bancha.onModelReady(['Article','User'], function() {
                     handler: Example.Grid.onCreate
                 }, {
                     iconCls: 'icon-reset',
-                    text: 'Reset',
+                    text: 'Reset Fields',
                     scope: store,
                     handler: Example.Grid.onReset
                 }, {
@@ -430,6 +430,7 @@ Example.Grid = {
         var store = grid.getStore(),
         rec = store.getAt(rowIndex),
         name = Ext.getClassName(rec);
+        name = name.substr(0,12)==='Bancha.model' ? name.substr(13) : name;
 
         // instantly remove vom ui
         store.remove(rec);
@@ -466,10 +467,10 @@ Example.Grid = {
         // reject all changes
         var store = this;
         store.each(function(rec) {
-            if (rec.modified) {
+            if (rec && rec.modified) {
                 rec.reject();
             }
-            if(rec.phantom) {
+            if(rec && rec.phantom) {
                 store.remove(rec);
             }
         });

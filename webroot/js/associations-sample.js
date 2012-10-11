@@ -78,6 +78,16 @@ Bancha.onModelReady(['Article','User'], function() {
      * Example 2 - Load all belongsTo associations
      */
 
+     // Since all examples share the same data, it's possible that 
+     // a NotFoundExceptions get thrown because a user record got 
+     // deleted in the crud examples. In this case show another msg
+     Ext.direct.Manager.on('exception', function() {
+            Ext.Msg.alert('Loaded belongsTo user record', [
+                'The Article doesn\'t belong to any user.<br /><br />',
+                'This can happen since we are using the same data in all examples.'
+            ].join(''));
+    });
+
     // display a grid of articles
     var articles = Ext.create('Ext.data.Store', {
         model: Bancha.getModel('Article'),

@@ -15,7 +15,7 @@ msgstr ""
 
 #: webroot/test 2.php:3
 msgid ""
-"Inside JavaScript Bancha.t(str,langCode) will translate the text in the "
+"Inside JavaScript Bancha.t(str) will translate the text in the "
 "correct language."
 msgstr "Sorry, I don't speak french ;-)"
 

@@ -34,9 +34,9 @@ Ext.onReady(function() {
         Bancha.Localizer.setCurrentLanguage(lang);
 
         // This is the only translation-specific
-        var text = Bancha.t('Inside JavaScript Bancha.t(str,langCode) will translate the text in the correct language.')+'<br /><br/>';
+        var text = Bancha.t('Inside JavaScript Bancha.t(str) will translate the text in the correct language.')+'<br /><br/>';
         text += Bancha.t('With the usage of following console tool you can collect all translation-ready strings:');
-        text += '<br /><code>./Console/cake i18n extract</code><br /><br />';
+        text += '<br /><code style="margin-top: 10px; width:100%;">./Console/cake i18n extract</code><br /><br />';
         text += Bancha.t('Bancha translations are handled like normal CakePHP translations, so just translate cakes pot files and you\'re ready to go.')+'<br /><br />';
         text += Bancha.t('Enjoy!');
 

@@ -15,10 +15,10 @@ msgstr ""
 
 #: webroot/test 2.php:3
 msgid ""
-"Inside JavaScript Bancha.t(str,langCode) will translate the text in the "
+"Inside JavaScript Bancha.t(str) will translate the text in the "
 "correct language."
 msgstr ""
-"Die JavaScript-Funktion Bancha.t(str,langCode) übersetzt beliebiges Texte."
+"Die JavaScript-Funktion Bancha.t(str) übersetzt beliebiges Texte."
 
 #: webroot/test 2.php:4
 msgid ""
