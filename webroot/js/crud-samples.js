@@ -503,7 +503,7 @@ Example.User = {
             xtype: "datefield",
             name: "created",
             fieldLabel: "Created on",
-            format: 'm/d/Y'
+            format: 'Y-m-d H:i:s'
         }, {
             xtype: "textfield",
             name: "email",
