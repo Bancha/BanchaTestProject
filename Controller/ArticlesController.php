@@ -6,21 +6,16 @@
 class ArticlesController extends AppController {
 
 /**
- * Configure the BanchaComponent explicitly to allow filtering on the fields below
- * This is used in the examples associations-sample.html and remote-filter-samples.html
- */
-	public $components = array(
-		'Session',
-		'Bancha.Bancha' => array(
-			'allowedFilters' => array('user_id','title','published')
-	));
-
-/**
  * index method
  *
  * @return void
  */
 	public function index() {
+		// Configure the BanchaPaginatorComponent explicitly to allow filtering on the fields below
+		// This is used in the examples associations-sample.html and remote-filter-samples.html
+		$this->Paginator->setAllowedFilters(array('user_id','title','published'));
+
+		// this is the default cake code
 		$articles = $this->paginate();																// added
 		$this->set('articles', $articles);															// modified
 		return array_merge($this->request['paging']['Article'],array('records'=>$articles)); 		// added
