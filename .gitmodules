@@ -8,5 +8,5 @@
 	update = checkout
 [submodule "webroot/touch"]
 	path = webroot/touch
-	url = git@github.com:Bancha/BanchaTouchClient.git
+	url = git://github.com/Bancha/BanchaTouchClient.git
 	update = checkout
