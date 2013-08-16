@@ -1,6 +1,6 @@
 /*!
  *
- * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
+ * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
  * Copyright 2011-2012 StudioQ OG
  *
  * Licensed under The MIT License
@@ -12,7 +12,7 @@
  * @since         Bancha v 0.9.2
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
- * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
+ * @version       Bancha v 1.2.0
  *
  * For more information go to http://banchaproject.org
  */

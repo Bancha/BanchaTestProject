@@ -1,119 +1,255 @@
-<html> 
+<html>
 <!--
 /*!
  *
  * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
- * Copyright 2011-2012 StudioQ OG
+ * Copyright 2011-2013 codeQ e.U.
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @package       Bancha
- * @copyright     Copyright 2011-2012 StudioQ OG
+ * @package       Bancha.webroot
+ * @copyright     Copyright 2011-2013 codeQ e.U.
  * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.2.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org 
+ * For more information go to http://banchaproject.org
  */
 -->
 <head>
-<title>Bancha Project - The Power of ExtJS and CakePHP</title> 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<meta http-equiv="Content-Style-Type" content="text/css" /> 
-<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
-<meta name="description" content="" /> 
-<meta name="keywords" content="" /> 
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' /> 
-<!-- 1140px Grid styles for IE --> 
-<!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]--> 
-<!-- The 1140px Grid - http://cssgrid.net/ --> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/1140.css" type="text/css" media="screen" /> 
-<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers--> 
-<script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
+<title>Bancha - Seamless Integration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="description" content="Bancha - Seamlessly integrate CakePHP with Sencha Touch and ExtJS" />
+<meta name="keywords" content="" />
 <meta name="robots" content="index,follow" />
-
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:regular,bold|Raleway:400,500' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="http://assets.banchaproject.org/tl_files/Bancha/layout.css" type="text/css" media="screen" />
 
 <!-- sample specific css -->
-<link rel="stylesheet" href="css/resources/css/ext-all.css" type="text/css">
+<link rel="stylesheet" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/ext-theme-classic/ext-theme-classic-all.css">
 <link rel="stylesheet" href="css/samples.css" type="text/css">
-<!-- eo sample specific css -->
 
 
 </head>
-<body id="top" style="text-align:center;"> 
-<div class="wrapper">
-    <br />
-    <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
-    <br /><br />
-	
-	<h1>Bancha creates the Stores - ExtJS the Rest</h1>
+<body id="top" style="text-align:center;">
 
-	<p>
-        The code: <a href="http://docs.banchaproject.org/resources/Controller-Augmentation-Alternative-1.html" target="_blank">cakephp default controller augmentation</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/crud-samples.js#L1" target="_blank">javascript code</a>.
-        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+<!-- fork us on github -->
+<a href="https://github.com/Bancha/BanchaTestProject"><img id="fork-us" style="position: fixed; top: 0; right: 0; border: 0; z-index:500;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+
+<div class="wrapper">
+
+	<h1>Bancha Pro Examples</h1>
+
+    <h2>Application Startup</h2>
+	<p class="description">
+        Bancha provides fully configured models, which are loaded after simply requiring it in Ext JS/Sencha Touch syntax. All fields, validation rules and associations are taken from the CakePHP model. To start up Ext JS we use <a href="docs.sencha.com/extjs/4.2.0/#!/api/Ext.app.Application">Ext.application</a>. We also require the Bancha Scaffold overrides to easily create scaffolded grids and forms.
     </p>
-	
-    <code class="align-left" style="padding-left:60px;">var store = Ext.create('Ext.data.Store', {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('User'), // yes, that's all you have to do <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true                  // (proxy, fields. etc. is already configured)<br />
-    });</code>
+    <pre class="align-left">Ext.application({
+    name: 'BanchaExample',
+    requires: [
+        // require server-side models from Bancha's model namespace
+        'Bancha.model.Article',
+        'Bancha.model.User',
+        // also require Bancha Scaffold
+        'Bancha.scaffold.form.override.Panel',
+        'Bancha.scaffold.grid.override.Panel'
+    ],
+    launch: function() {
+        ...
+    </pre>
+
+    <h2>Grid Panel</h2>
+    <p class="description">
+        The following example simply uses Bancha Scaffold to create a grid from the Bancha model configuration.
+    </p>
+    <pre class="align-left">Ext.create('Ext.grid.Panel', {
+    title: 'User Grid with full CRUD support',
+
+    // determin columns, etc. from model
+    scaffold: 'Bancha.model.User',
+
+    // some additional styles
+    height: 370,
+    width: 715,
+    frame: true,
+    renderTo: 'gridpanel'
+});</pre>
     <div id="gridpanel"></div>
-    
-    <code class="align-left" style="padding-left:60px;">var pagingStore = Ext.create('Ext.data.Store', {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('Article'),<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true,<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;pageSize: 10, // just add a paging size and Bancha does everything<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;remoteSort: true // Bancha also supports remote sorting<br />
-    });</code>
+
+    <h2>Grid Panel with remote sorting and pagination</h2>
+    <p class="description">
+        Application data can sometimes grow rapidly. And so displaying a reasonable number of records per page has always been a critical part of every application and used to cause many headaches for developers. Bancha eases the burden on the developer by providing a quick, easy way to paginate data. Bancha models support remote sorting, filtering and pagination out of the box.
+    </p>
+    <pre class="align-left">
+Ext.create('Ext.grid.Panel', {
+    title: 'Grid with server-side Paging and remote sorting',
+
+    // use config object
+    scaffold: {
+
+        // determin columns, etc. from model
+        target: 'Bancha.model.Article',
+
+        // use a different store in every example
+        oneStorePerModel: false,
+
+        // configure paging
+        storeDefaults: {
+            autoLoad: true,
+            pageSize: 10,
+            remoteSort: true
+        },
+
+        // add a paging bar
+        afterBuild: function(config) {
+            // paging bar on the bottom
+            config.bbar = Ext.create('Ext.PagingToolbar', {
+                store: config.store,
+                displayInfo: true,
+                displayMsg: 'Displaying entry {0} - {1} of {2}',
+                emptyMsg: 'No entires to display'
+            });
+            return config;
+        }, //eo afterBuild
+
+        // don't show delete icon
+        deletable: false
+    },
+
+    // add some styling
+    height: 400,
+    width: 715,
+    frame: true,
+    renderTo: 'paginated-gridpanel'
+});</pre>
     <div id="paginated-gridpanel"></div>
 
-    <code class="align-left" style="padding-left:60px;">Ext.create('Ext.form.Panel', {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;api: { // tell the form to use Banchas methods<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;load: Bancha.getStub('User').read,<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submit: Bancha.getStub('User').submit<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;},<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;...<br />
-        }
-    </code>
-    <div id="formpanel"></div>
-	
-    <code class="align-left" style="padding-left:60px;">var chartStore = Ext.create('Ext.data.Store', {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;model: Bancha.getModel('User'), // yes, that's all you have to do <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;autoLoad: true                  // (proxy, fields. etc. is already configured)<br />
-    });</code>
-	<div id="chart"></div>
-    
-    <p class="github-link"><a href="http://github.com/Bancha/BanchaTestProject" target="_blank">View the full example code on GitHub</a></p>
+    <!--
+    <h2>Form Panel</h2>
+    <p class="description">
+        Sometimes you are not editing multiple records, but only a specfic one. In these cases forms are a great choice.
+    </p>
+    <pre class="align-left">
+        Ext.create('Ext.form.Panel', {
+            title: 'Form Submit with File Upload - Create a new User',
 
-    <br />
-	
+            // configure Bancha
+            api: {
+                load: Bancha.RemoteStubs.User.read,     // <-- use Bancha's standard CRUD methods for forms
+                submit: Bancha.RemoteStubs.User.submit
+            },
+            paramOrder: ['data'],
+
+            // enable file uploads
+            fileUpload: true,
+
+            // configure form
+            items: Ext.clone(Example.User.formItems),
+
+
+            // add load and submit buttons
+            id: 'form',
+            buttons: [{
+                text: 'Load Record 1',
+                iconCls: 'icon-edit-user',
+                handler: function() {
+                    var panel = Ext.ComponentManager.get('form');
+
+                    // load the form (Bancha requires this structure)
+                    panel.load({
+                        params: {
+                            data: { data: { id:1 } }
+                        },
+                        success: function(form, action) {
+                            // build a record
+                            var rec = Ext.create(Bancha.getModel('User'),action.result.data);
+                            form.loadRecord(rec);
+
+                            // update the image
+                            panel.down('#avatar-display-field').update(action.result.data);
+                        }
+                    });
+
+                    // change the header title
+                    panel.setTitle('Form Submit with File Upload - Change Record 1');
+                }
+            }, {
+                iconCls: "icon-save",
+                text: "Save",
+                formBind: true,
+                handler: function() {
+                    var panel = Ext.ComponentManager.get('form'),
+                        form  = panel.getForm();
+
+                    if(form.isValid()){
+                        form.submit({
+                            waitMsg: 'Saving data..',
+                            success: function(form, action) {
+                                var rec;
+                                Ext.MessageBox.alert('Success', action.result.msg || 'Successfully saved data.');
+
+                                // if we just created a new record on the server, create it here as well
+                                if(!form.getRecord()) {
+                                    rec = Ext.create(Bancha.getModel('User'),action.result.data);
+                                    form.loadRecord(rec);
+                                } else {
+                                    // save changes
+                                    rec = form.getRecord();
+                                    Ext.Object.each(action.result.data,function(key,value) {
+                                        rec.set(key,value);
+                                    });
+                                }
+
+                                // update image
+                               panel.down('#avatar-display-field').update(rec.data);
+                            },
+                            failure: function(form, action) {
+                                Ext.MessageBox.alert('Failed', action.result.msg || 'Could not save data, unknown error.');
+
+                                // update image
+                                panel.down('#avatar-display-field').update({});
+                            }
+                        });
+                    }
+                } //eo handler
+            }], //eo buttons</pre>
+    <div id="formpanel"></div>
+    -->
+
+    <h2>Bancha models</h2>
+    <p class="description">
+        For any other Ext JS or Sencha Touch code where you are not leveraging Bancha Scaffold you can simply
+        use the Bancha model like any other model. Here for example we use the Bancha User model to create a
+        store and then use this store for displaying a Ext JS chart.
+    </p>
+    <pre class="align-left">var chartStore = Ext.create('Ext.data.Store', {
+    model: 'Bancha.model.User', // yes, that's all you have to do
+    autoLoad: true              // everything is already preconfigured
+});</pre>
+	<div id="chart"></div>
+
+
+    <p>
+        The code full code: <a href="http://docs.banchaproject.org/resources/Controller-Augmentation-Alternative-1.html" target="_blank">cakephp default controller augmentation</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/crud-samples.js#L1" target="_blank">javascript code</a>.
+        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+    </p>
+
+    <br>
+
     <!-- for footer alignment -->
-	<div class="push"></div> 
+	<div class="push"></div>
 </div>
-<div class="footer"> 
+<div class="footer">
 	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
 </div>
 
 
 <!-- include ExtJS -->
-<!--IFDEBUG -->
-<script type="text/javascript" src="js/ext-all-dev.js"></script>
-<!-- ENDIF -->
-<!-- IFPRODUCTION
-<script type="text/javascript" src="js/ext-all.js"></script>
-ENDIF -->
-
-
-<!-- include Bancha and the remote API -->
-<script type="text/javascript" src="Bancha/js/Bancha.js"></script>
-<script type="text/javascript" src="bancha-api.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-theme-classic.js"></script>
 
 <!-- include sample code -->
-<script type="text/javascript" src="js/error-handling.js"></script>
 <script type="text/javascript" src="js/crud-samples.js"></script>
 
 <!-- Add a feedback widget -->
@@ -127,7 +263,7 @@ ENDIF -->
 </script>
 
 <!-- add some analytics -->
-<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script> 
+<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script>
 
 </body>
 </html>

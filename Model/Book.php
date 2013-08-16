@@ -10,7 +10,7 @@ class Book extends AppModel {
  *
  * @var mixed False or table name
  */
-	public $useTable = 'book';
+	public $useTable = 'book'; // change to plural
 /**
  * Display field
  *

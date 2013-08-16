@@ -11,10 +11,9 @@ class HellosController extends AppController {
  * @banchaRemotable
  */
 	public function getGreeting($timestamp,$firstname) {
-
 		// ignore Judas
 		if(strtolower($firstname)=="judas") {
-			// Bancha will form the appropriete request
+			// Bancha will form the appropriete response
 			return false;
 		}
 
@@ -29,6 +28,8 @@ class HellosController extends AppController {
 		}
 		
 		// return in extjs format
+		// alternatively returning simply the message
+		// would result in the same response
 		return array(
 			'success' => true,
 			'data' => $msg,

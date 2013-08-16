@@ -1,6 +1,6 @@
 /*!
  *
- * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
+ * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
  * Copyright 2011-2012 StudioQ OG
  *
  * Licensed under The MIT License
@@ -20,84 +20,70 @@
 /*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false */
 /*global Ext, Example:true, Bancha */
 
-// API and Bancha is already included,
-// now load sample dependencies
-Ext.require([
-    'Ext.grid.*'
-]);
+// include Bancha
+Ext.Loader.setConfig('enabled', true);
+Ext.Loader.setPath('Bancha','/Bancha/js');
+Ext.syncRequire('Bancha.Initializer');
 
+Ext.application({
+    name: 'BanchaExample',
+    requires: [
+        // load the grid
+        'Ext.grid.*',
+        // load Bancha Article model
+        'Bancha.model.Article'
+    ],
 
+    launch: function() {
 
+        // create a store which remotelly filters for published articles only
+        var store = Ext.create('Ext.data.Store', {
+            model: Bancha.getModel('Article'),
+            remoteFilter: true
+        });
+        store.filter('published', true);
+        store.load();
 
+        // display a grid of the data
+        Ext.create('Ext.grid.Panel', {
+            title: 'Display all published articles',
 
+            // grid configs
+            store: store,
+            columns: Ext.clone(Example.Article.gridColumns),
 
+            // some additional styles
+            height: 350,
+            width: 650,
+            frame: true,
+            renderTo: 'published-articles'
+        });
 
+        // example 2
+        // create a store which remotelly filters for articles with Title 'Title 01'
+        var store2 = Ext.create('Ext.data.Store', {
+            model: Bancha.getModel('Article'),
+            remoteFilter: true
+        });
+        store2.filter('title', 'Titel 01');
+        store2.load();
 
-// when Bancha is ready, the model meta data is loaded
-// from the server and the model is created....
-Bancha.onModelReady('Article', function() {
+        // display a grid of the data
+        Ext.create('Ext.grid.Panel', {
+            title: 'Display all articles with title equals "Titel 01"',
 
+            // grid configs
+            store: store2,
+            columns: Ext.clone(Example.Article.gridColumns),
 
-    // create a store which remotelly filters for published articles only
-    var store = Ext.create('Ext.data.Store', {
-        model: Bancha.getModel('Article'),
-        remoteFilter: true
-    });
-    store.filter('published', true);
-    store.load();
-
-    // display a grid of the data
-    Ext.create('Ext.grid.Panel', {
-        title: 'Display all published articles',
-      
-        // grid configs
-        store: store,
-        columns: Ext.clone(Example.Article.gridColumns),
-        
-        // some additional styles
-        height: 350,
-        width: 650,
-        frame: true,
-        renderTo: 'published-articles'
-    });
-    
-
-
-    // example 2
-    // create a store which remotelly filters for articles with Title 'Title 01'
-    var store2 = Ext.create('Ext.data.Store', {
-        model: Bancha.getModel('Article'),
-        remoteFilter: true
-    });
-    store2.filter('title', 'Titel 01');
-    store2.load();
-
-    // display a grid of the data
-    Ext.create('Ext.grid.Panel', {
-        title: 'Display all articles with title equals "Titel 01"',
-      
-        // grid configs
-        store: store2,
-        columns: Ext.clone(Example.Article.gridColumns),
-        
-        // some additional styles
-        height: 350,
-        width: 650,
-        frame: true,
-        renderTo: 'title-01-articles'
-    });
-    
-}); //eo onmodelready
-
-
-
-
-
-
-
-
-
-
+            // some additional styles
+            height: 350,
+            width: 650,
+            frame: true,
+            renderTo: 'title-01-articles'
+        });
+}
+}); //eo application
 
 
 
@@ -107,7 +93,7 @@ Bancha.onModelReady('Article', function() {
 
 /**
  * This object provides some basic ExtJS code
- * to make the sample above cleaner and more 
+ * to make the sample above cleaner and more
  * focused on the important parts
  */
 var Example = {};

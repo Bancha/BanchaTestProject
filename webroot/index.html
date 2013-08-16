@@ -1,45 +1,67 @@
-<html> 
+<html>
 <!--
 /*!
  *
- * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
- * Copyright 2011-2012 StudioQ OG
+ * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
+ * Copyright 2011-2013 codeQ e.U.
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @package       Bancha
- * @copyright     Copyright 2011-2012 StudioQ OG
+ * @package       Bancha.webroot
+ * @copyright     Copyright 2011-2013 codeQ e.U.
  * @link          http://banchaproject.org Bancha Project
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org 
+ * For more information go to http://banchaproject.org
  */
 -->
 <head>
-<title>Bancha Project - The Power of ExtJS and CakePHP</title> 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<meta http-equiv="Content-Style-Type" content="text/css" /> 
-<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
-<meta name="description" content="" /> 
+<title>Bancha - Seamless Integration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="description" content="" />
 <meta name="keywords" content="" />
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' /> 
-<!-- 1140px Grid styles for IE --> 
-<!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]--> 
-<!-- The 1140px Grid - http://cssgrid.net/ --> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/1140.css" type="text/css" media="screen" /> 
-<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers--> 
-<script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' />
+<!-- 1140px Grid styles for IE -->
+<!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]-->
+<!-- The 1140px Grid - http://cssgrid.net/ -->
+<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/1140.css" type="text/css" media="screen" />
+<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+<script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script>
+<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" />
 <meta name="robots" content="index,follow" />
-</head> 
-<body id="top" style="text-align:center;"> 
+</head>
+<body id="top" style="text-align:center;">
 
-<br /><br /><br /><br /><br /><br />
-<a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
-<br /><br />
+<!-- fork us on github -->
+<a href="github.com/Bancha/Bancha"><img id="fork-us" style="position: fixed; top: 0; right: 0; border: 0; z-index:500;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+<header id="header">
+	<div class="inside">
+
+		<a href="http://banchaproject.org/">
+			<img src="http://assets.banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" id="logo">
+		</a>
+
+		<!-- indexer::stop -->
+		<nav class="mod_navigation block">
+			<a href="#skipNavigation14" class="invisible">Skip navigation</a>
+			<ul class="level_1">
+				<li class="sibling"><a href="http://samples.banchaproject.org" title="Examples" class="sibling">Examples</a></li>
+				<li class="sibling"><a href="http://banchaproject.org/tutorials.html" title="Tutorials" class="sibling">Tutorials</a></li>
+				<li class="sibling"><a href="http://docs.banchaproject.org" title="Documentation" class="sibling">Documentation</a></li>
+				<li class="sibling"><a href="http://api.banchaproject.org/js/index.html#/api/Bancha" title="JS API Docs" class="sibling" target="_blank">JS API Docs</a></li>
+				<li class="sibling"><a href="http://banchaproject.org/download.html" title="Download" class="sibling">Download</a></li>
+				<li class="sibling"><a href="http://banchaproject.org/store.html" title="Buy" class="sibling">Buy</a></li>
+				<li class="sibling"><a href="http://banchaproject.org/imprint.html" title="Contact" class="sibling">Contact</a></li>
+			</ul>
+			<a id="skipNavigation14" class="invisible">&nbsp;</a>
+		</nav>
+		<!-- indexer::continue -->
+
+	</div>
+	</div>
+</header>
 
 <h1 style="color:#633;padding-bottom:20px;">Bancha with ExtJS 4</h1>
 
@@ -50,17 +72,17 @@
 <h2><a href="localization-sample.html">Localization Example</a></h2>
 
 <h1 style="color:#633;padding-bottom:20px;">Bancha with Sencha Touch 2</h1>
-<h2><a href="touch/index.html">Sencha Touch Example</a></h2>
+<h2><a href="touch/index.html" target="_blank">Sencha Touch Example</a></h2>
 
 <br /><br />
 <a href="http://github.com/Bancha/BanchaTestProject" style="color:#633; font-size:24px" target="_blank">The full example code on GitHub</a>
 <br /><br /><br /><br />
 
-<footer id="footer" class="container"><div class="row"> 
-	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a></small> 
-</div></footer> 
- 
-</div> 
+<footer id="footer" class="container"><div class="row">
+	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a></small>
+</div></footer>
+
+</div>
 
 <!-- Add a feedback widget -->
 <script type="text/javascript">
@@ -73,7 +95,7 @@
 </script>
 
 <!-- add some analytics -->
-<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script> 
+<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script>
 
-</body> 
+</body>
 </html>

@@ -10,6 +10,8 @@ class Article extends AppModel {
 	 */
 	
 	public $actsAs = array('Bancha.BanchaRemotable');
+
+
 /**
  * Validation rules
  *

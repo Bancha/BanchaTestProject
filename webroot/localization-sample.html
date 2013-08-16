@@ -1,84 +1,72 @@
-<html> 
+<html>
 <!--
 /*!
  *
  * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
- * Copyright 2011-2012 StudioQ OG
+ * Copyright 2011-2013 codeQ e.U.
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @package       Bancha
- * @copyright     Copyright 2011-2012 StudioQ OG
+ * @package       Bancha.webroot
+ * @copyright     Copyright 2011-2013 codeQ e.U.
  * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.9.2
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org 
+ * For more information go to http://banchaproject.org
  */
 -->
 <head>
-<title>Bancha Project - The Power of ExtJS and CakePHP</title> 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-<meta http-equiv="Content-Style-Type" content="text/css" /> 
-<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
-<meta name="description" content="" /> 
-<meta name="keywords" content="" /> 
-<link href='http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' rel='stylesheet' type='text/css' /> 
-<!-- 1140px Grid styles for IE --> 
-<!--[if lte IE 9]><link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/ie.css" type="text/css" media="screen" /><![endif]--> 
-<!-- The 1140px Grid - http://cssgrid.net/ --> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/1140.css" type="text/css" media="screen" /> 
-<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers--> 
-<script type="text/javascript" src="http://banchaproject.org//tl_files/Bancha/scripts/css3-mediaqueries.js"></script> 
-<link rel="stylesheet" href="http://banchaproject.org//tl_files/Bancha/styles/master.css" type="text/css" media="screen" /> 
+<title>Bancha - Seamless Integration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="description" content="Bancha - Seamlessly integrate CakePHP with Sencha Touch and ExtJS" />
+<meta name="keywords" content="" />
 <meta name="robots" content="index,follow" />
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:regular,bold|Raleway:400,500' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="http://assets.banchaproject.org/tl_files/Bancha/layout.css" type="text/css" media="screen" />
 
 <!-- sample specific css -->
-<link rel="stylesheet" href="css/resources/css/ext-all.css" type="text/css">
+<link rel="stylesheet" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/ext-theme-classic/ext-theme-classic-all.css">
 <link rel="stylesheet" href="css/samples.css" type="text/css">
-<!-- eo sample specific css -->
 
 
 </head>
-<body id="top" style="text-align:center;"> 
+<body id="top" style="text-align:center;">
+
+<!-- fork us on github -->
+<a href="github.com/Bancha/Bancha"><img id="fork-us" style="position: fixed; top: 0; right: 0; border: 0; z-index:500;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+
 <div class="wrapper">
     <br />
     <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
     <br /><br />
 
-    <h1>Localizing your strings in the frontend</h1>
+    <h1>Bancha Pro: Localization</h1>
 
-	<p>
-        The <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/localization-sample.js#L1" target="_blank">javascript code</a>.
-        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+    <p class="description">
+        One of the best ways for your applications to reach a larger audience is to cater for multiple languages. Bancha provides you frontend and backend tools for translation management.
+        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/localization-sample.js#L1" target="_blank">full javascript code</a> of this example.
     </p>
-
-    <code class="align-left" style="width: 600px; padding: 5px;">
+    <code class="align-left">
         Bancha.Localizer.setCurrentLanguage(lang); // You can change the language<br />
         var localizedString = Bancha.t('And then translate strings.');
     </code>
     <div id="translation"></div>
-    
+
+    <br>
+
     <!-- for footer alignment -->
-	<div class="push"></div> 
+	<div class="push"></div>
 </div>
-<div class="footer"> 
+<div class="footer">
 	<small>&copy; 2011-2012 StudioQ OG. <a href="http://banchaproject.org/imprint.html">Imprint</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
 </div>
 
 
 <!-- include ExtJS -->
-<script type="text/javascript" src="js/ext-all-dev.js"></script>
-
-<!-- include Bancha and the remote API -->
-<script type="text/javascript" src="Bancha/js/Bancha.js"></script>
-<script type="text/javascript" src="bancha-api.js"></script>
-
-<!-- include error handling -->
-<script type="text/javascript" src="js/error-handling.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-theme-classic.js"></script>
 
 <!-- localizaton sample code -->
 <script type="text/javascript" src="js/localization-sample.js"></script>
@@ -94,7 +82,7 @@
 </script>
 
 <!-- add some analytics -->
-<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script> 
+<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script>
 
 </body>
 </html>

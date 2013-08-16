@@ -68,7 +68,10 @@ body h1 {
 	background-image:url(../img/icons/disk.png) ! important;
 }
 .icon-reset {
-	background-image:url(../img/icons/arrow_undo.png) ! important;
+    background-image:url(../img/icons/arrow_undo.png) ! important;
+}
+.icon-destroy {
+    background-image:url(../img/icons/delete.png) ! important;
 }
 .icon-upload {
 	background-image:url(../img/icons/image_add.png) ! important;
@@ -118,6 +121,8 @@ body h1 {
 
 /* specifically for the lacalization example */
 #translations-panel-body {
+    font-family: 'Droid Serif', tahoma, arial, verdana, sans-serif;
+    font-size: 12px;
     padding: 20px 15px 15px 15px;
     text-align: left;
 }
@@ -126,20 +131,35 @@ body h1 {
     display: inline-block;
 }
 
-/* display the code examples nicly formated */
-code {
-    margin: 40px auto 5px auto;
+/* display the descriptions and code examples nicly formated */
+h2 {
+    margin-top: 80px;
+    margin-bottom: 0;
+}
+h1 + h2 {
+    margin-top: 10px;
+}
+code,
+pre,
+.description {
+    text-align: left;
+    margin: 0 auto 5px auto;
     padding: 10px 5px;
+    width: 640px;
+}
+code,
+pre {
     text-align: center;
-    width: 650px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
 }
-code.align-left {
+code.align-left,
+pre.align-left {
     text-align: left;
-    padding-left:140px;
+    padding-left: 60px;
+    width: 585px;
 }
 
 /* eof */

@@ -1,8 +1,14 @@
 
+
+/*
+ * Please make sure to adopt the tables prefix here
+ */
+
+
 -- tags are missing yet
 
-
 -- add users
+DELETE FROM `bancha_10_samples_users` where 1=1;
 INSERT INTO `bancha_10_samples_users` (`id`, `name`, `login`, `created`, `email`, `avatar`, `weight`, `height`) VALUES
 (1, 'Roland', 'roland', '2011-07-28 03:54:20', 'mail@rolandschuetz.at', 'img/user-avatars/bancha-logo-1.png', 76, 187),
 (2, 'Andreas', 'andreas', '2011-07-28 03:54:20', 'andreas.kern@gmail.com', 'img/user-avatars/bancha-logo-2.jpg', 70, 230),
@@ -11,6 +17,7 @@ INSERT INTO `bancha_10_samples_users` (`id`, `name`, `login`, `created`, `email`
 
 
 -- add articles
+DELETE FROM `bancha_10_samples_articles` where 1=1;
 INSERT INTO `bancha_10_samples_articles` (`id`, `title`, `date`, `body`, `published`, `user_id`) VALUES
 (11, 'Titel 01', '2011-11-21 01:50:34', 'This is the text for 01', 0, 1),
 (12, 'Titel 02', '2011-11-21 01:50:42', 'This is the text for 02', 0, 1),
