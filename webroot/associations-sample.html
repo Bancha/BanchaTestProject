@@ -41,21 +41,34 @@
     <a href="http://banchaproject.org/"><img src="http://banchaproject.org/tl_files/Bancha/images/logo.png" alt="Bancha" /></a>
     <br /><br />
 
-	<h1>Bancha Pro: Model Associations</h1>
-
-	<p class="description">
-        Defining relations between different objects in your application should be a natural process. For example an article belongs to an user. Defining the way these relations work allows you to access your data in an intuitive and powerful way. Bancha automatically exposes all model associations and you access associated data through ExtJS/Sencha Touch.
-        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/associations-sample.js#L46" target="_blank">full javascript code</a> of this example.
-    </p>
-    <code class="align-left">var store = userRecord.articles();<br />store.load();</code>
-    <div id="has-many-grid"></div>
+    <h1>Bancha Pro: Model Associations</h1>
 
     <p class="description">
-        <br><br>
+        Defining relations between different objects in your application should be a natural process. For example an article belongs to a user. Defining the way these relations work allows you to access your data in an intuitive and powerful way. Bancha automatically exposes all model associations defined in CakePHP and you access associated data directly through ExtJS/Sencha Touch.
+        <br /><br />
+        This example shows how <em>hasMany</em> associations can be used. We have a <a href="http://docs.sencha.com/extjs/4.2.0/#!/api/Ext.form.field.ComboBox" target="_blank">ComboBox</a> in which you select a user. Every time the value is changed to a different user, the store (collection of all posts) of the ComboBox below will be changed and the data is loaded from the server.
+    </p>
+    <pre class="align-left">
+// get the articles store from the association
+var store = userRecord.articles();
+
+// load data for the new store
+store.load();
+
+// use this store in the combo below
+articleCombo.bindStore(store);</pre>
+    <div id="has-many-combo"></div>
+
+    <p class="description">
+        <br /><br />
         <i>Note: Since all examples share the same data, it's possible that sometimes there is no name or no association available. The data is reset every 15 minutes.</i><br/>
     </p>
     <code class="align-left">articleRecord.getUser({<br/>&nbsp;&nbsp;&nbsp;&nbsp;callback: function(user) { /*your code */ }<br/>});</code>
     <div id="belongs-to-grid"></div>
+
+    <p class="description">
+        See the <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/associations-sample.js#L46" target="_blank">full javascript code</a> of this example.
+    </p>
 
     <br>
 

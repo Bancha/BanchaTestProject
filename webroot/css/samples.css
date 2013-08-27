@@ -9,7 +9,9 @@ body {
     margin:0 auto 3px auto;
     min-height: 200px;
 }
-
+.x-list-plain { /* Comboboxes should align their text left */
+    text-align: left;
+}
 
 /* font styling */
 body h1, body .descriptions {
