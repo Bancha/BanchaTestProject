@@ -97,7 +97,7 @@ Ext.application({
             },
 
             // add some styling
-            height: 400,
+            height: 350,
             width: 650,
             frame: true,
             renderTo: 'paginated-gridpanel'

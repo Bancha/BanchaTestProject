@@ -57,6 +57,20 @@
 Ext.Loader.setConfig('enabled', true);
 Ext.Loader.setPath('Bancha','/Bancha/js');
 Ext.syncRequire('Bancha.Initializer');
+
+// require Bancha Scaffold
+Ext.syncRequire([
+    'Bancha.scaffold.form.override.Panel',
+    'Bancha.scaffold.grid.override.Panel'
+]);
+
+// load test models
+Ext.syncRequire([
+    'Bancha.model.Article',
+    'Bancha.model.ArticlesTag',
+    'Bancha.model.Tag',
+    'Bancha.model.User'
+]);
 </script>
 
 
