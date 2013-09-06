@@ -23,7 +23,6 @@
 // include Bancha
 Ext.Loader.setConfig('enabled', true);
 Ext.Loader.setPath('Bancha','/Bancha/js');
-Ext.syncRequire('Ext.window.MessageBox');
 Ext.syncRequire('Bancha.Initializer');
 
 Ext.application({
