@@ -10,3 +10,6 @@
 	path = webroot/touch
 	url = git://github.com/Bancha/BanchaTouchClient.git
 	update = checkout
+[submodule "webroot/offlinestorage"]
+	path = webroot/offlinestorage
+	url = https://github.com/Bancha/OfflineStorageExample.git
