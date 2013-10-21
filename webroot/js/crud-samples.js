@@ -115,7 +115,7 @@ Ext.application({
 
         // ... and some standard extjs charting
         // yes, there's nothing you have to do bancha-specific, just normal ext ;-)
-        Ext.create("Ext.panel.Panel", {
+        Ext.create('Ext.panel.Panel', {
             title: 'Column Chart',
             renderTo: 'chart',
             layout: 'fit',
@@ -150,16 +150,16 @@ Ext.application({
                     axis: 'left',
                     highlight: true,
                     tips: {
-                      trackMouse: true,
-                      width: 140,
-                      height: 28,
-                      renderer: function(storeItem, item) {
-                        this.setTitle(storeItem.get('name') + ': ' + storeItem.get('height') + 'cm');
-                      }
+                        trackMouse: true,
+                        width: 140,
+                        height: 28,
+                        renderer: function(storeItem, item) {
+                            this.setTitle(storeItem.get('name') + ': ' + storeItem.get('height') + 'cm');
+                        }
                     },
                     label: {
-                      display: 'insideEnd',
-                      'text-anchor': 'middle',
+                        display: 'insideEnd',
+                        'text-anchor': 'middle',
                         field: 'height',
                         renderer: Ext.util.Format.numberRenderer('0'),
                         orientation: 'vertical',
