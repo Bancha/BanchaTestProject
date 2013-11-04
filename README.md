@@ -23,12 +23,14 @@ __For ExtJS Support:__
 
 1. Download [ExtJS 4](http://www.sencha.com/products/extjs/download/).
 1. Place _ext-all.js_ and _ext-all-dev.js_ inside _app/webroot/js/_ and the ExtJS ressources folder into _app/webroot/css/_
+1. If your application is not running in the domain root, please adopt the path in _Ext.Loader.setPath('Bancha','/Bancha/js');_ in all _app/webroot/js_ files to match _your-path-to-cakephp-root/Bancha/js_
 1. Open one of the various examples (placed in _app/webroot/_), e.g. localhost/crud-samples.html
 
 __For Sencha Touch Support:__
 
 1. Download [Sencha Touch 2](http://www.sencha.com/products/touch/download/).
 1. Place _sencha-touch-all-debug.js_ and the _resources_ folder inside _app/webroot/js/touch/sencha-touch/_
+1. If your application is not running in the domain root, please adopt the path in _Ext.Loader.setPath('Bancha','/Bancha/js');_ in _app/webroot/touch/app.js:17_ to match _your-path-to-cakephp-root/Bancha/js_
 1. Open the WebApp in your browser, localhost/touch/
 
 
