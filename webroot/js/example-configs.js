@@ -1,13 +1,13 @@
 /*!
  *
  * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
- * Copyright 2011-2012 StudioQ OG
+ * Copyright 2011-2013 codeQ e.U.
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
  * @package       Bancha
- * @copyright     Copyright 2011-2012 StudioQ OG
+ * @copyright     Copyright 2011-2013 codeQ e.U.
  * @link          http://banchaproject.org Bancha Project
  * @since         Bancha v 0.9.2
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
