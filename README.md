@@ -23,11 +23,13 @@ __For ExtJS Support:__
 
 1. Download [ExtJS 4](http://www.sencha.com/products/extjs/download/).
 1. Place _ext-all.js_ and _ext-all-dev.js_ inside _app/webroot/js/_ and the ExtJS ressources folder into _app/webroot/css/_
+1. Open one of the various examples (placed in _app/webroot/_), e.g. localhost/crud-samples.html
 
 __For Sencha Touch Support:__
 
 1. Download [Sencha Touch 2](http://www.sencha.com/products/touch/download/).
 1. Place _sencha-touch-all-debug.js_ and the _resources_ folder inside _app/webroot/js/touch/sencha-touch/_
+1. Open the WebApp in your browser, localhost/touch/
 
 
 
