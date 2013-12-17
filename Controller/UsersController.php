@@ -13,6 +13,7 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 0;
+		$this->Paginator->setAllowedFilters('all');
 		$users = $this->paginate();														// added
 		$this->set('users', $users);													// modified
 		return array_merge($this->request['paging']['User'],array('records'=>$users)); 	// added
@@ -72,7 +73,14 @@ class UsersController extends AppController {
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
 		}
-	
+		
+		// this feature is used in the consistency example
+		if(!empty($this->request->data['User']['login']) && substr($this->request->data['User']['login'], 0, 12) === 'delayRequest') {
+			$sleepTime = intval(substr($this->request->data['User']['login'], 12)); // get users slep time
+			sleep(min(array($sleepTime, 20))); // slep max 20 seconds
+			unset($this->request->data['User']['login']);
+		}
+
 		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) {
 			// handle avatar field uploads
 			$result = $this->handleUpload('avatar');

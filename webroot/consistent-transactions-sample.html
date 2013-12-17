@@ -1,0 +1,97 @@
+<html>
+<!--
+/*!
+ *
+ * Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
+ * Copyright 2011-2013 codeQ e.U.
+ *
+ * @package       Bancha.webroot
+ * @copyright     Copyright 2011-2013 codeQ e.U.
+ * @link          http://banchaproject.org Bancha Project
+ * @author        Roland Schuetz <mail@rolandschuetz.at>
+ * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
+ *
+ * For more information go to http://banchaproject.org
+ */
+-->
+<head>
+<title>Bancha - Seamless Integration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="description" content="Bancha - Seamlessly integrate CakePHP with Sencha Touch and ExtJS" />
+<meta name="keywords" content="" />
+<meta name="robots" content="index,follow" />
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:regular,bold|Raleway:400,500' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="http://assets.banchaproject.org/tl_files/Bancha/layout.css" type="text/css" media="screen" />
+
+<!-- sample specific css -->
+<link rel="stylesheet" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/ext-theme-classic/ext-theme-classic-all.css">
+<link rel="stylesheet" href="css/samples.css" type="text/css">
+
+
+</head>
+<body id="top" style="text-align:center;">
+
+<!-- fork us on github -->
+<a href="https://github.com/Bancha/BanchaTestProject"><img id="fork-us" style="position: fixed; top: 0; right: 0; border: 0; z-index:500;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+
+<div class="wrapper">
+
+	<h1>Bancha Pro Examples</h1>
+
+    <h2>Consistent transactions</h2>
+	<p class="description">
+        One of the main challenges with asynchronous applications is to keep the requests both on the client and the server consistent. There are a number of cases, all of which Bancha can handle:
+    </p>
+    <ul class="description">
+        <li>Lost requests because of bad network</li>
+        <li>Duplicated requests because of bad latency</li>
+        <li>Race conditions because the slow a application</li>
+    </ul>
+    <p class="description">
+        The example below allows you to create race conditions and see how Bancha allways ensure the correct order.
+    </p>
+    <pre class="align-left">Bancha.getModel('User').setForceConsistency(true);</pre>
+    <div id="form"></div>
+    <div id="console" style="border:1px solid black; width:650; height:150px; overflow-y:scroll; margin:10px auto 0 auto; text-align:left;"></div>
+
+
+    <p>
+         Here you can find the <a href="js/consistent-sample.js" target="_blank">sample js code</a>.
+        Tell us how you like it <a href="http://www.sencha.com/forum/showthread.php?141983-Bancha-Combining-CakePHP-and-ExtJS" target="_blank">in the Forum</a>.
+    </p>
+
+    <br>
+
+    <!-- for footer alignment -->
+	<div class="push"></div>
+</div>
+<div class="footer">
+	<small>&copy; 2011-2013 codeQ e.U. <a href="http://banchaproject.org/imprint.html">Imprint</a>. Icons by <a href="http://www.famfamfam.com/lab/icons/silk/" target="_blank">FamFamFam</a>.</small>
+</div>
+
+
+<!-- include ExtJS -->
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-theme-classic.js"></script>
+
+<!-- include sample code -->
+<script type="text/javascript" src="js/consistent-transactions-sample.js"></script>
+
+<!-- Add a feedback widget -->
+<script type="text/javascript">
+  var uvOptions = {};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/0UXfPisT7dSYfaE0il292w.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+</script>
+
+<!-- add some analytics -->
+<script type="text/javascript">if(document.location.href.substr(0,16)!=="http://localhost" && document.location.href.substr(0,17)!=="https://localhost") {var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-10118336-4"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();}</script>
+
+</body>
+</html>

@@ -149,6 +149,9 @@ pre,
     padding: 10px 5px;
     width: 640px;
 }
+ul.description {
+    padding: 10px 5px 10px 50px;
+}
 code,
 pre {
     text-align: center;
