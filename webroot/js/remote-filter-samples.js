@@ -92,7 +92,7 @@ Ext.application({
 
 
 /**
- * This object provides some basic ExtJS code
+ * This object provides some basic Ext JS code
  * to make the sample above cleaner and more
  * focused on the important parts
  */

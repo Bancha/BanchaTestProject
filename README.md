@@ -19,10 +19,10 @@ __CakePHP Setup:__
 1. Configure your _app/Config/database.php_, then go in your console inside _app/_ and execute _"./Console/cake" schema create_ to create all the tables. You may also want to use the example data in _app/Config/Schema/testdata.sql_ (you probably will need to change the table prefix in this file).
 1. Open __/bancha/setup-check.html__ to see if everything works.
 
-__For ExtJS Support:__
+__For Ext JS Support:__
 
-1. Download [ExtJS 4](http://www.sencha.com/products/extjs/download/).
-1. Place _ext-all.js_ and _ext-all-dev.js_ inside _app/webroot/js/_ and the ExtJS ressources folder into _app/webroot/css/_
+1. Download [Ext JS](http://www.sencha.com/products/extjs/download/).
+1. Place _ext-all.js_ and _ext-all-dev.js_ inside _app/webroot/js/_ and the Ext JS ressources folder into _app/webroot/css/_
 1. If your application is not running in the domain root, please adopt the path in _Ext.Loader.setPath('Bancha','/Bancha/js');_ in all _app/webroot/js_ files to match _your-path-to-cakephp-root/Bancha/js_
 1. Open one of the various examples (placed in _app/webroot/_), e.g. localhost/crud-samples.html
 

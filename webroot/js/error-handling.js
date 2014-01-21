@@ -30,7 +30,7 @@
         
         // ext not present
         if(!window.Ext || !Ext.Msg || typeof Ext.Msg.alert !== 'function') {
-            alert("The ExtJS 4 library is not present. Please check installation instructions for further inforamtion.");
+            alert('The Ext JS library is not present. Please check installation instructions for further inforamtion.');
             return;
         }
         

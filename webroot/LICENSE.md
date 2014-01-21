@@ -1,7 +1,7 @@
 
 
 
-Bancha Project : Seamlessly integrates CakePHP with ExtJS and Sencha Touch (http://banchaproject.org)
+Bancha Project : Seamlessly integrates CakePHP with Ext JS and Sencha Touch (http://banchaproject.org)
 Copyright 2011-2012 Roland Schuetz
 
 The above copyright notice and this permission notice shall be included in
