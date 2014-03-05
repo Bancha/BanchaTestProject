@@ -15,6 +15,9 @@ class ArticlesController extends AppController {
 		// This is used in the examples associations-sample.html and remote-filter-samples.html
 		$this->Paginator->setAllowedFilters(array('user_id','title','published'));
 
+		// load directly associated data, used in association example
+		$this->Article->recursive = 2;
+
 		// this is the default cake code
 		$articles = $this->paginate();																// added
 		$this->set('articles', $articles);															// modified

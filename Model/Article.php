@@ -68,6 +68,21 @@ class Article extends AppModel {
 	);
 
 /**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'ArticlesTag' => array(
+			'className' => 'ArticlesTag',
+			'foreignKey' => 'article_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
+/**
  * hasAndBelongsToMany associations
  *
  * @var array

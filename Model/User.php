@@ -4,10 +4,19 @@
  *
  */
 class User extends AppModel {
-	/**
-	 * Bancha behaviour
-	 */
+/**
+ * Bancha behaviour
+ *
+ * @var array
+ */
 	public $actsAs = array('Bancha.BanchaRemotable');
+
+/**
+ * Display field
+ *
+ * @var string
+ */
+    public $displayField = 'name';
 	
 /**
  * Validation rules
@@ -15,12 +24,6 @@ class User extends AppModel {
  * @var array
  */
 	public $validate = array( // TODO example for validation rule "url" missing
-	   'id' => array(	
-           'numeric' => array(
-               'rule' => array('numeric'),
-               'precision' => 0
-            ),
-	   ),
 	   'name' => array(
             'notempty' => array(
                 'rule' => array('notempty')

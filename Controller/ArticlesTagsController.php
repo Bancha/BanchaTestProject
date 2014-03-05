@@ -38,6 +38,9 @@ class ArticlesTagsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->ArticlesTag->create();
+
+			if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->ArticlesTag->saveFieldsAndReturn($this->request->data);	 // added
+
 			if ($this->ArticlesTag->save($this->request->data)) {
 				$this->Session->setFlash(__('The articles tag has been saved'));
 				$this->redirect(array('action' => 'index'));
@@ -61,6 +64,9 @@ class ArticlesTagsController extends AppController {
 		if (!$this->ArticlesTag->exists()) {
 			throw new NotFoundException(__('Invalid articles tag'));
 		}
+
+		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->ArticlesTag->saveFieldsAndReturn($this->request->data);	 // added
+
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->ArticlesTag->save($this->request->data)) {
 				$this->Session->setFlash(__('The articles tag has been saved'));
@@ -90,6 +96,9 @@ class ArticlesTagsController extends AppController {
 		if (!$this->ArticlesTag->exists()) {
 			throw new NotFoundException(__('Invalid articles tag'));
 		}
+
+		if(isset($this->request->params['isBancha']) && $this->request->params['isBancha']) return $this->ArticlesTag->deleteAndReturn();	 // added
+
 		if ($this->ArticlesTag->delete()) {
 			$this->Session->setFlash(__('Articles tag deleted'));
 			$this->redirect(array('action'=>'index'));

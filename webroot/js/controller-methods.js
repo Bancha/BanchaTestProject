@@ -1,24 +1,26 @@
 /*!
  *
- * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
- * Copyright 2011-2013 codeQ e.U.
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * Bancha Project : Seamlessly integrates CakePHP with Ext JS and Sencha Touch (http://bancha.io)
+ * Copyright 2011-2014 codeQ e.U.
  *
  * @package       Bancha
- * @copyright     Copyright 2011-2013 codeQ e.U.
- * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.9.3
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright     Copyright 2011-2014 codeQ e.U.
+ * @link          http://bancha.io Bancha
+ * @since         Bancha v 2.3.0
  * @author        Roland Schuetz <mail@rolandschuetz.at>
- * @version       Bancha v 1.2.0
+ * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org
+ * For more information go to http://bancha.io
  */
-/*jslint browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
-/*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false */
-/*global Ext, Bancha */
+/*jslint 
+    browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, 
+    bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
+/*jshint 
+    bitwise: true, camelcase: false, curly: true, eqeqeq: true, es3: true, forin:true,
+    immed:true, indent: 4, latedef: true, newcap: true, noarg: true, noempty: true, 
+    plusplus: false, quotmark: single, undef: true, unused: vars, strict: false, 
+    trailing: true */
+/*global Ext */
 
 // include Bancha
 Ext.Loader.setConfig('enabled', true);
@@ -47,8 +49,8 @@ Ext.application({
         // write console helper
         var log = function(msg) {
                 var date = new Date();
-                date = (date.getHours()<10 ? ' '+date.getHours() : date.getHours())+":"+
-                       (date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes());
+                date = (date.getHours()<10 ? ' '+date.getHours() : date.getHours())+':'+
+                       (date.getMinutes()<10 ? '0'+date.getMinutes() : date.getMinutes());
                 box.getTargetEl().insertHtml(
                     'beforeEnd',
                     date + ': ' + msg + '<br>'
@@ -57,7 +59,7 @@ Ext.application({
 
         // create a input textfield
         var textfield = Ext.create('Ext.form.field.Text', {
-            title: "First Name:",
+            title: 'First Name:',
             allowBlank: false
         });
 
@@ -73,14 +75,14 @@ Ext.application({
                         if(result.success) {
                             log(result.data);
                         } else {
-                            log("The server does not want to talk to you.");
+                            log('The server does not want to talk to you.');
                         }
                     });
                 } else {
                     Ext.Msg.show({
                         animationTarget: button.getEl(),
-                        title: "Name not defined",
-                        msg: "Please write your name before asking for a greeting.",
+                        title: 'Name not defined',
+                        msg: 'Please write your name before asking for a greeting.',
                         icon: Ext.window.MessageBox.ERROR,
                         buttons: Ext.Msg.OK,
                         fn: function() {
@@ -96,7 +98,7 @@ Ext.application({
         Ext.create('Ext.Panel', {
             title: 'Log',
             items: [box],
-            fbar: ['Enter your firstname here:',textfield, button],
+            fbar: ['Enter your firstname here:', textfield, button],
 
             // styling
             cls: 'log-text',

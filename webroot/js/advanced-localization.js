@@ -1,24 +1,26 @@
 /*!
  *
- * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
- * Copyright 2011-2013 codeQ e.U.
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * Bancha Project : Seamlessly integrates CakePHP with Ext JS and Sencha Touch (http://bancha.io)
+ * Copyright 2011-2014 codeQ e.U.
  *
  * @package       Bancha
- * @copyright     Copyright 2011-2013 codeQ e.U.
- * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.9.2
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright     Copyright 2011-2014 codeQ e.U.
+ * @link          http://bancha.io Bancha
+ * @since         Bancha v 2.3.0
  * @author        Roland Schuetz <mail@rolandschuetz.at>
- * @version       Bancha v 1.2.0
+ * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org
+ * For more information go to http://bancha.io
  */
-/*jslint browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
-/*jshint bitwise:true, curly:true, eqeqeq:true, forin:true, immed:true, latedef:true, newcap:true, noarg:true, noempty:true, regexp:true, undef:true, trailing:false */
-/*global Ext:false, Bancha:false, window:false */
+/*jslint 
+    browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, 
+    bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
+/*jshint 
+    bitwise: true, camelcase: false, curly: true, eqeqeq: true, es3: true, forin:true,
+    immed:true, indent: 4, latedef: true, newcap: true, noarg: true, noempty: true, 
+    plusplus: false, quotmark: single, undef: true, unused: vars, strict: false, 
+    trailing: true, maxlen: 200 */
+/*global Ext */
 
 // include Bancha
 Ext.Loader.setConfig('enabled', true);
@@ -28,8 +30,8 @@ Ext.syncRequire('Bancha.Initializer');
 Ext.application({
     name: 'BanchaExample',
     requires: [
-    'Ext.button.Button',
-    'Ext.panel.Panel'
+        'Ext.button.Button',
+        'Ext.panel.Panel'
     ],
 
     launch: function() {
@@ -42,7 +44,8 @@ Ext.application({
             var text = Bancha.t('Inside JavaScript Bancha.t(str) will translate the text in the correct language.')+'<br /><br/>';
             text += Bancha.t('With the usage of following console tool you can collect all translation-ready strings:');
             text += '<br /><code style="margin-top: 10px; width:100%;">./Console/cake bancha.jsi18n</code><br /><br />';
-            text += Bancha.t('Bancha translations are handled like normal CakePHP translations, so just translate cakes pot files and you\'re ready to go.')+'<br /><br />';
+            text += Bancha.t('Bancha translations are handled like normal CakePHP translations, so just translate cakes pot files and you\'re ready to go.');
+            text += '<br /><br />';
             text += Bancha.t('Enjoy!');
 
             // update component text
@@ -83,7 +86,7 @@ Ext.application({
             html: [ // this will always be in english
                 'Bancha provides already build in support for localizing your frontend.<br />',
                 'For a demo click on of the buttons above'
-                ].join('')
+            ].join('')
         });
     }
 });

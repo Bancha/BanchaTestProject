@@ -1,23 +1,26 @@
 /*!
  *
- * Bancha Project : Combining Ext JS and CakePHP (http://banchaproject.org)
- * Copyright 2011-2013 codeQ e.U.
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * Bancha Project : Seamlessly integrates CakePHP with Ext JS and Sencha Touch (http://bancha.io)
+ * Copyright 2011-2014 codeQ e.U.
  *
  * @package       Bancha
- * @copyright     Copyright 2011-2013 codeQ e.U.
- * @link          http://banchaproject.org Bancha Project
- * @since         Bancha v 0.9.2
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @copyright     Copyright 2011-2014 codeQ e.U.
+ * @link          http://bancha.io Bancha
+ * @since         Bancha v 2.3.0
  * @author        Roland Schuetz <mail@rolandschuetz.at>
  * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
  *
- * For more information go to http://banchaproject.org
+ * For more information go to http://bancha.io
  */
-/*jslint browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
-/*global Ext, Bancha */
+/*jslint 
+    browser: true, vars: true, undef: true, nomen: true, eqeq: false, plusplus: true, 
+    bitwise: true, regexp: true, newcap: true, sloppy: true, white: true */
+/*jshint 
+    bitwise: true, camelcase: false, curly: true, eqeqeq: true, es3: true, forin:true,
+    immed:true, indent: 4, latedef: true, newcap: true, noarg: true, noempty: true, 
+    plusplus: false, quotmark: single, undef: true, unused: vars, strict: false, 
+    trailing: true */
+/*global Ext */
 
 // include Bancha
 Ext.Loader.setConfig('enabled', true);
@@ -46,7 +49,7 @@ Ext.application({
         Ext.direct.Manager.providers.items[0].enableBuffer = false;
 
         // activate consistency
-        Bancha.getModel('User').setForceConsistency(true);
+        Bancha.model.User.setForceConsistency(true);
 
         // listen for changes from server
         Ext.direct.Manager.on('event', function(event) {
@@ -61,7 +64,7 @@ Ext.application({
 
                 // record is ready, render form
                 Ext.create('Ext.form.Panel', {
-                    title: 'Change the user name, each action takes 3 seconds on the server.',
+                    title: 'Change the user name. by changing the server-processing time you can create race-conditions.',
                     bodyPadding: 10,
                     width: 650,
                     renderTo: 'form',
@@ -115,5 +118,3 @@ Ext.application({
         });
     }
 });
-
-// eof

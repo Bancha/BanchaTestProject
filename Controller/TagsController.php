@@ -12,8 +12,10 @@ class TagsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Tag->recursive = 0;
-		$this->set('tags', $this->paginate());
+		// this is the default cake code
+		$tags = $this->paginate();																// added
+		$this->set('tags', $tags);																// modified
+		return array_merge($this->request['paging']['Tag'],array('records'=>$tags)); 			// added
 	}
 
 /**

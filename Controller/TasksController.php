@@ -21,19 +21,8 @@ class TasksController extends AppController {
  * @return void
  */
 	public function index() {
-		// dynamic loading
-		/*
-		$id = isset($this->request->parentId) ? $this->request->parentId : null;
-		return $this->Task->children($id, true);
-		*/
-
-		// load all children at once
+        // return the tasks in a tree structure
 		return $this->Task->find('threaded');
-		
-		// output structure for debug purposes
-        $data = $this->Task->generateTreeList(null, null, null, '&nbsp;&nbsp;&nbsp;&nbsp;');
-        echo implode('<br>', $data);
-        die();
 	}
 
 /**

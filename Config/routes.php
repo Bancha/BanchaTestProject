@@ -32,6 +32,29 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
+ * Redirect legacy urls
+ */
+
+Router::redirect('/controller-sample.html', '/pages/extjs5/controller-methods', array('status'=>301));
+Router::redirect('/controller-sample-embedded.html', '/pages/extjs5/controller-methods', array('status'=>301));
+
+Router::redirect('/crud-samples.html', '/pages/extjs5/models', array('status'=>301));
+Router::redirect('/crud-samples-embedded.html', '/pages/extjs5/models', array('status'=>301));
+
+Router::redirect('/associations-sample.html', '/pages/extjs5/models-associations', array('status'=>301));
+Router::redirect('/associations-sample-embedded.html', '/pages/extjs5/models', array('status'=>301));
+
+Router::redirect('/remote-filter-samples.html', '/pages/extjs5/models-remote-filtering', array('status'=>301));
+Router::redirect('/remote-filter-samples-embedded.html', '/pages/extjs5/models-remote-filtering', array('status'=>301));
+
+Router::redirect('/crud-samples.html', '/pages/extjs5/models', array('status'=>301));
+Router::redirect('/crud-samples-embedded.html', '/pages/extjs5/models', array('status'=>301));
+
+Router::redirect('/localization-sample.html', '/pages/extjs5/advanced-localization', array('status'=>301));
+Router::redirect('/localization-sample-embedded.html', '/pages/extjs5/advanced-localization', array('status'=>301));
+
+
+/**
  * Load all plugin routes.  See the CakePlugin documentation on 
  * how to customize the loading of plugin routes.
  */
