@@ -42,7 +42,7 @@ That's it, enjoy!
 More information
 ----------------
 
-*   [Bancha Overview](http://banchaproject.org/)
+*   [Bancha Overview](http://bancha.io/)
 *   [Updates on Twitter](http://twitter.com/#!/banchaproject)
 
 -------------------------
