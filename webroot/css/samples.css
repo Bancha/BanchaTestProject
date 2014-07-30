@@ -267,6 +267,10 @@ pre,
 ul.description {
     padding: 10px 5px 10px 50px;
 }
+.description.error {
+    width: 590px;
+    padding: 13px 25px;
+}
 code,
 pre {
     text-align: center;

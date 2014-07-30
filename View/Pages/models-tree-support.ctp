@@ -6,7 +6,7 @@
 
 <?php if($extjs5): ?>
 </p>
-<p class="description error" style="width: 590;">
+<p class="description error">
     Because of the this <a href="http://www.sencha.com/forum/showthread.php?289269" target="_blank">Ext JS 5 bug</a> synchronising currently doesn't work in Ext JS 5. Trees currently can beloaded and we expect the Ext JS bug for saving to be fixed soon by the Sencha team.
 </p>
 <pre class="align-left">var store = Ext.create('Ext.data.TreeStore', {
