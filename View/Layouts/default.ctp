@@ -48,6 +48,9 @@
 <!-- sample specific css -->
 <link rel="stylesheet" href="/css/samples.css" type="text/css">
 
+<?php
+    $basePath = $page==='index' ? '/pages/extjs5' : '.';
+?>
 
 </head>
 <body id="top">
@@ -67,24 +70,24 @@
             <a href="#skipNavigation14" class="invisible">Skip navigation</a>
             <ul class="level_1">
                 <li>
-                    <a href="./controller-methods">Controller Methods</a>
+                    <a href="<?php echo $basePath; ?>/controller-methods">Controller Methods</a>
                 </li>
                 <li>
-                    <a href="./models">Exposed Models</a>
+                    <a href="<?php echo $basePath; ?>/models">Exposed Models</a>
                     <ul class="level_2">
-                        <li><a href="./models-scaffolded-grids">Scaffolded Grids</a></li>
-                        <li><a href="./models-scaffolded-forms">Scaffolded Forms</a></li>
-                        <li><a href="./models-chart">Chart Example</a></li>
-                        <li><a href="./models-associations">Model Associations</a></li>
-                        <li><a href="./models-remote-filtering">Remote Filtering</a></li>
-                        <li><a href="./models-tree-support">Tree Support</a></li>
-                        <li><a href="./models-consistent-transactions">Consistent Transactions</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-scaffolded-grids">Scaffolded Grids</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-scaffolded-forms">Scaffolded Forms</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-chart">Chart Example</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-associations">Model Associations</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-remote-filtering">Remote Filtering</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-tree-support">Tree Support</a></li>
+                        <li><a href="<?php echo $basePath; ?>/models-consistent-transactions">Consistent Transactions</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="./advanced-localization">Advanced Examples</a>
+                    <a href="<?php echo $basePath; ?>/advanced-localization">Advanced Examples</a>
                     <ul class="level_2">
-                        <li><a href="./advanced-localization">Localization</a></li>
+                        <li><a href="<?php echo $basePath; ?>/advanced-localization">Localization</a></li>
                         <li><a href="/touch/" target="_blank">Sencha Touch</a></li>
                         <li><a href="http://blogapp.banchaproject.org/app.html" target="_blank">Sencha Architect MVC Example</a></li>
                         <li><a href="http://samples.banchaproject.org/developer-remote-api.html" target="_blank">Example of JavaScript API-Viewer</a></li>
