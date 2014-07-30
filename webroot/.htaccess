@@ -19,7 +19,10 @@ Options All -Indexes
 
 
 # ----------------------------------------------------------------------
-# Rewrite samples.banchaproject.com to .org
+# Rewrite samples.banchaproject.com and .org to .io
 # ----------------------------------------------------------------------
 RewriteCond %{HTTP_HOST} ^samples\.banchaproject\.com [NC]
-RewriteRule (.*) http://samples.banchaproject.org/$1 [R=301,L]
+RewriteRule (.*) http://samples.bancha.io/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^samples\.banchaproject\.org [NC]
+RewriteRule (.*) http://samples.bancha.io/$1 [R=301,L]
