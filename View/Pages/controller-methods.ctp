@@ -11,6 +11,6 @@
 <div id="log"></div>
 
 <div class="panel-description">
-    The code: <a href="https://github.com/Bancha/BanchaTestProject/blob/master/Controller/HellosController.php#L13" target="_blank">cakephp code</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/controller-methods.js#L28" target="_blank">javascript code</a>.
+    The code: <a href="https://github.com/Bancha/BanchaTestProject/blob/master/Controller/HellosController.php#L13" target="_blank">cakephp code</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/controller-methods.js#L73" target="_blank">javascript code</a>.
     For any questions <a href="http://bancha.io/forum/category/1.html" target="_blank">post in the forum</a>.
 </div>

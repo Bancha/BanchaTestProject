@@ -42,6 +42,6 @@
 <div id="treepanel"></div>
 
 <div class="panel-description">
-    The code full code: <a href="http://bancha.io/documentation-pro-models-cakephp.html#augment-existing-controllers" target="_blank">cakephp default controller augmentation</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/models-tree-support.js#L28" target="_blank">javascript code</a>.<br>
+    The full code: <a href="https://github.com/Bancha/BanchaTestProject/blob/master/Controller/TasksController.php#L18" target="_blank">cakephp controller code</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/models-tree-support.js#L31" target="_blank">javascript code</a>.<br>
     For any questions <a href="http://bancha.io/forum/category/1.html" target="_blank">post in the forum</a>.
 </p>

@@ -17,6 +17,6 @@
 
 
 <div class="panel-description">
-    The code full code: <a href="http://bancha.io/documentation-pro-models-cakephp.html#augment-existing-controllers" target="_blank">cakephp default controller augmentation</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/models-consistent-transactions.js#L28" target="_blank">javascript code</a>.<br>
+    The code full code: <a href="http://bancha.io/documentation-pro-models-cakephp.html#augment-existing-controllers" target="_blank">cakephp default controller augmentation</a>, <a href="https://github.com/Bancha/BanchaTestProject/blob/master/webroot/js/models-consistent-transactions.js#L52" target="_blank">javascript code</a>.<br>
 	For any questions <a href="http://bancha.io/forum/category/1.html" target="_blank">post in the forum</a>.
 </p>
