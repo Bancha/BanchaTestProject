@@ -15,4 +15,4 @@
 	url = https://github.com/Bancha/OfflineStorageExample.git
 [submodule "Plugin/Minify"]
 	path = Plugin/Minify
-	url = https://github.com/maurymmarques/minify-cakephp.git
+	url = https://github.com/Bancha/minify-cakephp.git
