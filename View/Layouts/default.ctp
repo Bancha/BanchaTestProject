@@ -119,13 +119,47 @@
 
 <!-- include Ext JS -->
 <?php if($extjs5): ?>
-<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all-debug.js"></script>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
 <script src="http://cdn.sencha.com/ext/gpl/5.0.0/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
-<script src="http://cdn.sencha.com/ext/gpl/5.0.0/packages/ext-charts/build/ext-charts.js"></script>
+<?php if(strpos($page, 'chart') !== false): ?>
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/packages/ext-charts/build/ext-charts.js"></script>
+<?php endif; ?>
 <?php else: ?>
 <script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
 <script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-theme-classic.js"></script>
 <?php endif; ?>
+
+<!-- include Bancha -->
+<?php
+/*
+ * Normally you should use Sencha Cmd to build your application.
+ * But since we here have multiple independent examples and want
+ * to keep the code easily readable built on the fly we use a 
+ * manual combination of files.
+ * Note: this will result in debugging code to be executed, which
+ * is intended for our online examples.
+ * Also note that not all dependencies are loaded here, just some
+ * to speed up the process
+ */
+if(Configure::read('debug') == 2) {
+    Configure::write('MinifyAsset', true);
+    echo $this->Minify->script(array(
+        '../../Plugin/Bancha/webroot/js/data/writer/JsonWithDateTime.js',
+        '../../Plugin/Bancha/webroot/js/data/writer/TreeParentIdTransformedJson.js',
+        '../../Plugin/Bancha/webroot/js/data/writer/ConsistentJson.js',
+        '../../Plugin/Bancha/webroot/js/Remoting.js',
+        '../../Plugin/Bancha/webroot/js/data/override/NodeInterface.js',
+        '../../Plugin/Bancha/webroot/js/data/override/Validations.js',
+        '../../Plugin/Bancha/webroot/js/data/validator/File.js',
+        '../../Plugin/Bancha/webroot/js/data/Validators.js',
+        '../../Plugin/Bancha/webroot/js/Main.js',
+        '../../Plugin/Bancha/webroot/js/data/Model.js',
+        '../../Plugin/Bancha/webroot/js/loader/Interface.js',
+        '../../Plugin/Bancha/webroot/js/Loader.js',
+        '../../Plugin/Bancha/webroot/js/Logger.js'
+    ));
+}
+?>
 
 <!-- include sample code -->
 <script type="text/javascript" src="/js/<?php echo $page; ?>.js"></script>

@@ -10,6 +10,7 @@
 /tmp/cache/persistent/bancha_*
 /tmp/cache/persistent/cake_*
 /tmp/cache/views/cake_*
+/tmp/cache/minify/minify_*
 /tmp/logs/*.log
 
 

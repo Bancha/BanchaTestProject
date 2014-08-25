@@ -31,6 +31,12 @@ App::uses('AppController', 'Controller');
 class PagesController extends AppController {
 
 /**
+ * Use the minify plugin in the layout
+ * @var array
+ */
+	public $helpers = array('Minify.Minify');
+
+/**
  * This controller does not use a model
  *
  * @var array

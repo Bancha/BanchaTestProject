@@ -180,8 +180,9 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-//make the Bancha Plugin known to cakephp
-CakePlugin::load(array('Bancha' => array('routes' => true, 'bootstrap' => true))); 
-    
-//make the BanchaDeveloperRemoteApi Plugin known to cakephp
-CakePlugin::load(array('BanchaDeveloperRemoteApi' => array('routes' => true))); 
+//make the Plugins known to cakephp
+CakePlugin::load(array(
+	'Bancha' => array('routes' => true, 'bootstrap' => true),
+	'BanchaDeveloperRemoteApi' => array('routes' => true),
+	'Minify' => array('routes' => true)
+)); 
