@@ -12,7 +12,19 @@
 
 <pre class="align-left">
 // get the articles store from the association
+<?php if($extjs5): ?>
+// because of a bug in Ext JS 5 we need to create a new store
+Ext.create('Ext.data.Store', {
+    model: 'Bancha.model.Article',
+    remoteFilter: true,
+    filters: [{
+        property: 'user_id',
+        value: record.getId()
+    }]
+});
+<?php else: ?>
 var store = userRecord.articles();
+<?php endif; ?>
 
 // load data for the new store
 store.load();
@@ -27,9 +39,22 @@ articleCombo.bindStore(store);</pre>
 <p class="description">
     <i>Note: Since all examples share the same data, it's possible that sometimes there is no name or no association available. The data is reset every 15 minutes.</i><br/>
 </p>
-<pre class="align-left">articleRecord.getUser({
+<?php if($extjs5): ?>
+<pre class="align-left">// In Ext JS 5 due to the bug already mentioned above 
+// we need to load the user model manually
+Bancha.model.User.load(article.get('user_id'), {
     callback: function(user) { /* your code here */ }
 });</pre>
+<?php else: ?>
+<pre class="align-left">// when the associated data is already present
+var user = articleRecord.getUser();
+
+// when the associated data might now be present
+// use the async version
+articleRecord.getUser({
+    callback: function(user) { /* your code here */ }
+});</pre>
+<?php endif; ?>
 <div id="belongs-to-grid"></div>
 
 
@@ -39,7 +64,14 @@ articleCombo.bindStore(store);</pre>
 <p class="description">
     The following example shows how an article can get multiple tags assigned, using the Ext JS combobox with multiselect set to true.
 </p>
+<?php if($extjs5): ?>
+<pre class="align-left">
+// In Ext JS 5 due to the bug already mentioned above 
+// we need to access the raw data via articleRecord.data.tags
+</pre>
+<?php else: ?>
 <pre class="align-left">articleRecord.articlesTags()</pre>
+<?php endif; ?>
 <div id="has-and-belongs-to-many-form"></div>
 
 <div class="panel-description">

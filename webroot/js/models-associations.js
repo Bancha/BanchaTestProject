@@ -65,7 +65,8 @@ Ext.application({
                     change: function(field, newValue) {
                         var articleCombo = field.up('form').down('[name=article]'),
                             // get the selected user record
-                            userRecord = field.getStore().getById(newValue);
+                            userRecord = field.getStore().getById(newValue),
+                            store;
 
                         // activate the field below, if a user is selected
                         articleCombo.setDisabled(!userRecord);
@@ -77,8 +78,23 @@ Ext.application({
                             return; // no user selected
                         }
 
+                        // Ext JS 5 is buggy and requires a fix here,
+                        // see http://www.sencha.com/forum/showthread.php?289532
+                        if(Ext.versions.extjs.major === 5) {
+                            userRecord.articles = function() {
+                                return Ext.create('Ext.data.Store', {
+                                    model: 'Bancha.model.Article',
+                                    remoteFilter: true,
+                                    filters: [{
+                                        property: 'user_id',
+                                        value: this.getId()
+                                    }]
+                                });
+                            };
+                        }
+
                         // get the articles store from the association
-                        var store = userRecord.articles();
+                        store = userRecord.articles();
 
                         // load data for the new store
                         store.load();
@@ -197,9 +213,8 @@ Ext.application({
 
             listeners: {
                 selectionchange: function(selectionModel, selected) {
-
-                    // load the user of the selected article
-                    selected[0].getUser({
+                    // as soon as the data is present show a popup
+                    var options = {
                         callback: function(user, operation) {
                             Ext.Msg.alert('Loaded belongsTo user record', [
                                 'The Article '+selected[0].get('title'),
@@ -207,14 +222,24 @@ Ext.application({
                                 user.get('name') || '<i>No name defined</i>'
                             ].join(''));
                         }
-                    });
+                    };
+
+                    // load the user of the selected article
+                    if(Ext.versions.extjs.major === 4) {
+                        // In Ext JS 4 we can simply call the generated getter function
+                        selected[0].getUser(options);
+                    } else {
+                        // In Ext JS 5 due to the bug already mentioned above we need to load
+                        // the user model manually
+                        Bancha.model.User.load(selected[0].get('user_id'), options);
+                    }
                 } //eo selectionchanged
             }
         });
 
 
         /**
-         * Example 3 - HandAndBelongsToMany for Ext JS 4
+         * Example 3 - HandAndBelongsToMany
          */
         Ext.create('Ext.form.Panel', {
             title: 'One use case for a hasAndbelongsToMany association, Article hasAndbelongsToMany Tag',
@@ -246,12 +271,24 @@ Ext.application({
                         form.getForm().setValues(articleRecord.data);
                         form.setTitle('Edit Article: '+articleRecord.data.title);
                         form.expand(true);
+                        if(Ext.versions.extjs.major === 5) {
+                            form.up('form').setHeight(325); // Ext JS 5 forgets to update the height 
+                        }
 
                         // transform tags to combobox format
                         var tags = [];
-                        articleRecord.articlesTags().each(function(rec) {
-                            tags.push(rec.data.tag_id);
-                        });
+                        if(Ext.versions.extjs.major === 5) {
+                            // Ext JS 5 is buggy and requires to access the raw data
+                            // see http://www.sencha.com/forum/showthread.php?289532 
+                            Ext.each(articleRecord.data.tags, function(tag) {
+                                tags.push(tag.id);
+                            });
+                        } else {
+                            // iterate through the associated store
+                            articleRecord.articlesTags().each(function(rec) {
+                                tags.push(rec.data.tag_id);
+                            });
+                        }
                         form.down('combobox').setValue(tags);
                     }
                 }
@@ -305,45 +342,85 @@ Ext.application({
                         var form = this.up('form'),
                             rec = form._record;
 
-                        if (form.isValid()) {
-                            // update the record
-                            form.getForm().updateRecord(rec);
-                            if(rec.isModified()) {
-                                form.setLoading(true);
-                                rec.save({
-                                    success: function(rec, result) {
-                                        form.setLoading(false);
-                                    }
-                                });
-                            }
-
-                            // update hasAndBelongsToMany
-                            var store = rec.articlesTags(), // takes the already associated data
-                                tags = form.down('combobox').getValue();
-
-                            // since the combobox saves data in a different format, transform data
-                            var records = store.data.items,
-                                i = 0;
-                            while(i < records.length) { // needs to be a while, because we remove data inside the loop
-                                if(tags.indexOf(records[i].data.tag_id) === -1) {
-                                    // this connection got removed by the user
-                                    store.remove(records[i]);
-                                } else {
-                                    // connection stays the same
-                                    // remvoed from to-be-processed tags array
-                                    tags.splice(tags.indexOf(records[i].data.tag_id), 1);
-                                    i++;
-                                }
-                            }
-                            Ext.each(tags, function(tagId) {
-                                // add newly selected ones
-                                store.add({
-                                    article_id: rec.data.tag_id,
-                                    tag_id: tagId
-                                });
-                            });
-                            store.sync();
+                        if (!form.isValid()) {
+                            return;
                         }
+                        form.setLoading(true);
+
+                        // update the record
+                        form.getForm().updateRecord(rec);
+                        if(rec.isModified()) {
+                            form.setLoading(true);
+                            rec.save({
+                                success: function(rec, result) {
+                                    form.setLoading(false);
+                                }
+                            });
+                        }
+
+                        if(Ext.versions.extjs.major === 5) {
+                            // Ext JS 5 is buggy and requires a fix here,
+                            // see http://www.sencha.com/forum/showthread.php?289532
+                            var store = Ext.create('Ext.data.Store', {
+                                model: 'Bancha.model.ArticlesTag',
+                                remoteFilter: true,
+                                filters: [{
+                                    property: 'article_id',
+                                    value: rec.getId()
+                                }]
+                            });
+                            store.load({
+                                scope: this,
+                                callback: Ext.Function.bind(this.onStoreLoadedUpdateHandler, this, [store, form, rec])
+                            });
+                        } else {
+                            // simply jump to the method below
+                            this.onStoreLoadedUpdateHandler(
+                                rec.articlesTags(), // take the already associated data
+                                form,
+                                rec
+                            );
+                        }
+                    },
+                    onStoreLoadedUpdateHandler: function(store, form, rec) {
+                        // update hasAndBelongsToMany
+                        var tags = form.down('combobox').getValue();
+
+                        // since the combobox saves data in a different format, transform data
+                        var records = store.data.items,
+                            i = 0;
+                        while(i < records.length) { // needs to be a while, because we remove data inside the loop
+                            if(tags.indexOf(records[i].data.tag_id) === -1) {
+                                // this connection got removed by the user
+                                store.remove(records[i]);
+                            } else {
+                                // connection stays the same
+                                // remvoed from to-be-processed tags array
+                                tags.splice(tags.indexOf(records[i].data.tag_id), 1);
+                                i++;
+                            }
+                        }
+                        Ext.each(tags, function(tagId) {
+                            // add newly selected ones
+                            store.add({
+                                article_id: rec.data.id,
+                                tag_id: tagId
+                            });
+                        });
+
+                        if(!store.getRemovedRecords().length && !store.getNewRecords().length) {
+                            // nothing to sync
+                            form.setLoading(false);
+                            return;
+                        }
+
+                        // else sync
+                        store.sync({
+                            scope: form,
+                            callback: function() {
+                                this.setLoading(false);
+                            }
+                        });
                     }
                 }]
             }],

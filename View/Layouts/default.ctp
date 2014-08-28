@@ -143,6 +143,7 @@
  */
 if(Configure::read('debug') == 2) {
     Configure::write('MinifyAsset', true);
+    echo '<script>Ext.Loader.setConfig("enabled", true);Ext.Loader.setPath("Bancha","/Bancha/js");</script>';
     echo $this->Minify->script(array(
         '../../Plugin/Bancha/webroot/js/data/writer/JsonWithDateTime.js',
         '../../Plugin/Bancha/webroot/js/data/writer/TreeParentIdTransformedJson.js',
@@ -150,7 +151,7 @@ if(Configure::read('debug') == 2) {
         '../../Plugin/Bancha/webroot/js/Remoting.js',
         '../../Plugin/Bancha/webroot/js/data/override/NodeInterface.js',
         '../../Plugin/Bancha/webroot/js/data/override/Validations.js',
-        '../../Plugin/Bancha/webroot/js/data/validator/File.js',
+        $extjs5 ? '../../Plugin/Bancha/webroot/js/data/validator/File.js' : false,
         '../../Plugin/Bancha/webroot/js/data/Validators.js',
         '../../Plugin/Bancha/webroot/js/Main.js',
         '../../Plugin/Bancha/webroot/js/data/Model.js',

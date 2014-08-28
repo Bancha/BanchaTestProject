@@ -13,7 +13,9 @@ class ArticlesTagsController extends AppController {
  */
 	public function index() {
 		$this->ArticlesTag->recursive = 0;
-		$this->set('articlesTags', $this->paginate());
+		$articlesTags = $this->paginate();																// added
+		$this->set('articlesTags', $articlesTags);														// modified
+		return array_merge($this->request['paging']['ArticlesTag'], array('records' => $articlesTags));	// added
 	}
 
 /**
