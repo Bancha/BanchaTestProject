@@ -22,6 +22,7 @@ class AppSchema extends CakeSchema {
 	);
 
 	public $articles_tags = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 		'article_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 		'tag_id' => array('type' => 'integer', 'null' => false, 'default' => null),
 		'indexes' => array(
