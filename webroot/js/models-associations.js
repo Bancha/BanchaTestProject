@@ -272,7 +272,7 @@ Ext.application({
                         form.setTitle('Edit Article: '+articleRecord.data.title);
                         form.expand(true);
                         if(Ext.versions.extjs.major === 5) {
-                            form.up('form').setHeight(325); // Ext JS 5 forgets to update the height 
+                            form.up('form').setHeight(330); // Ext JS 5 forgets to update the height 
                         }
 
                         // transform tags to combobox format

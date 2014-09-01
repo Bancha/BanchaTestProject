@@ -9,20 +9,20 @@
  * @copyright     Copyright 2011-2014 codeQ e.U.
  * @link          http://bancha.io Bancha
  * @author        Roland Schuetz <mail@rolandschuetz.at>
- * @version       Bancha v PRECOMPILER_ADD_RELEASE_VERSION
+ * @version       Bancha v 2.3.1
  *
  * For more information go to http://bancha.io
  */
 -->
 <head>
-<title>Bancha Examples: <?php echo $title_for_layout; ?></title>
+<title>Bancha Examples<?php if($title_for_layout) { echo ': '.$title_for_layout; } ?></title>
 <?php
-	echo $this->Html->charset();
-	echo $this->Html->meta('icon');
+    echo $this->Html->charset();
+    echo $this->Html->meta('icon');
 
-	echo $this->fetch('meta');
-	echo $this->fetch('css');
-	echo $this->fetch('script');
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
 ?>
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -105,7 +105,7 @@
 
 <div class="wrapper">
 
-	<?php echo $this->fetch('content'); ?>
+    <?php echo $this->fetch('content'); ?>
 
     <br>
 
@@ -141,7 +141,7 @@
  * Also note that not all dependencies are loaded here, just some
  * to speed up the process
  */
-if(Configure::read('debug') == 2) {
+if(Configure::read('debug') < 2) {
     Configure::write('MinifyAsset', true);
     echo '<script>Ext.Loader.setConfig("enabled", true);Ext.Loader.setPath("Bancha","/Bancha/js");</script>';
     echo $this->Minify->script(array(
