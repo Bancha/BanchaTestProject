@@ -90,7 +90,7 @@
                         <li><a href="<?php echo $basePath; ?>/advanced-localization">Localization</a></li>
                         <li><a href="/touch/" target="_blank">Sencha Touch</a></li>
                         <li><a href="http://blogapp.banchaproject.org/app.html" target="_blank">Sencha Architect MVC Example</a></li>
-                        <li><a href="http://samples.banchaproject.org/developer-remote-api.html" target="_blank">Example of JavaScript API-Viewer</a></li>
+                        <li><a href="http://samples.bancha.io/developer-remote-api.html" target="_blank">Example of JavaScript API-Viewer</a></li>
                     </ul>
                 </li>
             </ul>
@@ -141,7 +141,7 @@
  * Also note that not all dependencies are loaded here, just some
  * to speed up the process
  */
-if(Configure::read('debug') < 2) {
+if($_SERVER['HTTP_HOST'] == 'samples.bancha.io') {
     Configure::write('MinifyAsset', true);
     echo '<script>Ext.Loader.setConfig("enabled", true);Ext.Loader.setPath("Bancha","/Bancha/js");</script>';
     echo $this->Minify->script(array(
